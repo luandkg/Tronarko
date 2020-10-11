@@ -132,24 +132,21 @@ public class TronarkoCena extends Cena {
 		long total = TronarkoC.getLong (Hoje,Agora);
 		
 		
-		TextoPequeno.EscreveNegrito(g, " -->> Total : " +total, LX+300, LY -100);
-		
-		TextoPequeno.EscreveNegrito(g, " -->> " + TronarkoC.setLong(total), LX+300, LY -50);
+		//TextoPequeno.EscreveNegrito(g, " -->> Total : " +total, LX+300, LY -100);
+		//
+	//	TextoPequeno.EscreveNegrito(g, " -->> " + TronarkoC.setLong(total), LX+300, LY -50);
 
-		
-		
-		LY = 200;
-		LX = 900;
-		
+
 		MapaCelestial.Allux AlluxC = new MapaCelestial.Allux();
 		MapaCelestial.Ettos EttosC = new MapaCelestial.Ettos();
 		MapaCelestial.Unnos UnnosC = new MapaCelestial.Unnos();
 
-		String mSatelites = " -->> Allux : " + AlluxC.getFase(Hoje).toString();
-		mSatelites += "    " + " -->> Ettos : " + EttosC.getFase(Hoje).toString();
-		mSatelites += "    " + " -->> Unnos : " + UnnosC.getFase(Hoje).toString();
+		TextoPequeno.EscreveNegrito(g, " -->> Allux : " +AlluxC.getFase(Hoje).toString(), LX+300, LY -100);
+		TextoPequeno.EscreveNegrito(g, " -->> Ettos : " +EttosC.getFase(Hoje).toString(), LX+300, LY -50);
+		TextoPequeno.EscreveNegrito(g, " -->> Unnos : " +UnnosC.getFase(Hoje).toString(), LX+300, LY );
 
-		TextoPequeno.EscreveNegrito(g, mSatelites, LX, LY);
+		
+
 
 		draw_hiperarko(g, Hoje, mInfos, Hoje.getHiperarko(), 0, LX + 50, 280, CAIXA_ALTURA);
 
@@ -243,7 +240,7 @@ public class TronarkoCena extends Cena {
 				}
 
 				g.setColor(mCor);
-				g.fillRect(QX - 5, QY - 15, 25, 20);
+				g.fillRect(QX -3, QY - 15, 25, 20);
 
 				String mSuperNum = numeral(mSuperarko);
 
