@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.Random;
 
 import Empacotador.Empacotador;
-import Tronarko.Harrempluz.Harrempluz.Harrem;
 import Tronarko.Intervalos.Tozte_Intervalo;
 import Tronarko.Tronarko.Signos;
 import Tronarko.Tronarko.Tozte;
@@ -394,6 +393,15 @@ public class Tronarko {
 		public Hazde adicionar_Uzzon(int u) {
 			return modificar_Uzzon(this, u);
 		}
+
+
+		public Hazde getComEttonZerado() {
+			Hazde ret = new Hazde(this.getArco(), this.getItta(), 0);
+
+			return ret;
+		}
+
+
 
 		public Hazde modificar_Arco(Hazde sTron, int a) {
 

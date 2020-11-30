@@ -14,708 +14,815 @@ import Tronarko.Tronarko.Tozte;
 
 public class Eventum {
 
-	private ArrayList<AvisarPequenoEvento> mPequenosEventos;
-	private ArrayList<AvisarGrandeEvento> mGrandesEventos;
+    private ArrayList<AvisarPequenoEvento> mPequenosEventos;
+    private ArrayList<AvisarGrandeEvento> mGrandesEventos;
 
-	public Eventum() {
+    public Eventum() {
 
-		mPequenosEventos = new ArrayList<AvisarPequenoEvento>();
-		mGrandesEventos = new ArrayList<AvisarGrandeEvento>();
+        mPequenosEventos = new ArrayList<AvisarPequenoEvento>();
+        mGrandesEventos = new ArrayList<AvisarGrandeEvento>();
 
-		ArrayList<Ocorrencia> mOcorrencias = new ArrayList<Ocorrencia>();
+        ArrayList<Ocorrencia> mOcorrencias = new ArrayList<Ocorrencia>();
 
-		mOcorrencias.add(new Ocorrencia("Festival Reciclum Tron", 1, 1, 1, 1, 1));
-		mOcorrencias.add(new Ocorrencia("Festival do Vento", 26, 1, 6500, 1, 1));
-		mOcorrencias.add(new Ocorrencia("Festival da Água", 41, 7, 6501, 1, 1));
-		mOcorrencias.add(new Ocorrencia("Festival do Fogo", 15, 6, 6502, 1, 1));
-		mOcorrencias.add(new Ocorrencia("Festival da Terra", 5, 8, 6503, 1, 1));
-		mOcorrencias.add(new Ocorrencia("Festival Reciclum Tron", 50, 10, 1, 1, 1));
+        mOcorrencias.add(new Ocorrencia("Festival Reciclum Tron", 1, 1, 1, 1, 1));
+        mOcorrencias.add(new Ocorrencia("Festival do Vento", 26, 1, 6500, 1, 1));
+        mOcorrencias.add(new Ocorrencia("Festival da Água", 41, 7, 6501, 1, 1));
+        mOcorrencias.add(new Ocorrencia("Festival do Fogo", 15, 6, 6502, 1, 1));
+        mOcorrencias.add(new Ocorrencia("Festival da Terra", 5, 8, 6503, 1, 1));
+        mOcorrencias.add(new Ocorrencia("Festival Reciclum Tron", 50, 10, 1, 1, 1));
 
-		 mOcorrencias.add(new Ocorrencia("Aposta do Trovão", 45, 2, 6507, 1, 3));
+        mOcorrencias.add(new Ocorrencia("Aposta do Trovão", 45, 2, 6507, 1, 3));
 
-		mOcorrencias.add(new Ocorrencia("Corrida dos Ventos", 26, 1, 6500, 5, 3));
-		mOcorrencias.add(new Ocorrencia("Olimpíadas de Trannor", 11, 3, 6444, 32, 33));
-		mOcorrencias.add(new Ocorrencia("Grande Competião de Izzator", 11, 4, 6500, 25, 5));
+        mOcorrencias.add(new Ocorrencia("Corrida dos Ventos", 26, 1, 6500, 5, 3));
+        mOcorrencias.add(new Ocorrencia("Olimpíadas de Trannor", 11, 3, 6444, 32, 33));
+        mOcorrencias.add(new Ocorrencia("Grande Competião de Izzator", 11, 4, 6500, 25, 5));
 
-		mOcorrencias.add(new Ocorrencia("Fuga do Labirinto", 1, 5, 5227, 20, 100));
-		mOcorrencias.add(new Ocorrencia("Cruzada dos Águas", 41, 7, 6501, 5, 3));
-		mOcorrencias.add(new Ocorrencia("Emboscada da Terra", 5, 8, 6503, 10, 3));
+        mOcorrencias.add(new Ocorrencia("Fuga do Labirinto", 1, 5, 5227, 20, 100));
+        mOcorrencias.add(new Ocorrencia("Cruzada dos Águas", 41, 7, 6501, 5, 3));
+        mOcorrencias.add(new Ocorrencia("Emboscada da Terra", 5, 8, 6503, 10, 3));
 
-		mOcorrencias.add(new Ocorrencia("Jornada do Fogo", 15, 6, 6502, 5, 3));
+        mOcorrencias.add(new Ocorrencia("Jornada do Fogo", 15, 6, 6502, 5, 3));
 
-		mOcorrencias.add(new Ocorrencia("Festival da Colheita", 26, 10, 6200, 5, 1));
+        mOcorrencias.add(new Ocorrencia("Festival da Colheita", 26, 10, 6200, 5, 1));
 
-		mOcorrencias.add(new Ocorrencia("Batalha dos Imperadores", 30, 1, 5382, 39, 50));
-		mOcorrencias.add(new Ocorrencia("Torneio de Hazzo", 11, 9, 5431, 10, 2));
+        mOcorrencias.add(new Ocorrencia("Batalha dos Imperadores", 30, 1, 5382, 39, 50));
+        mOcorrencias.add(new Ocorrencia("Torneio de Hazzo", 11, 9, 5431, 10, 2));
 
-		for (Ocorrencia OcorrenciaC : mOcorrencias) {
+        for (Ocorrencia OcorrenciaC : mOcorrencias) {
 
-			if (OcorrenciaC.getPeriodo() == Modos.PERIODICO) {
+            if (OcorrenciaC.getPeriodo() == Modos.PERIODICO) {
 
-				if (OcorrenciaC.getQuantidade() == 1) {
+                if (OcorrenciaC.getQuantidade() == 1) {
 
-					mPequenosEventos.add(new AvisarPequenoEvento(OcorrenciaC.getNome(), OcorrenciaC.getHiperarko(),
-							OcorrenciaC.getSuperarko(), OcorrenciaC.getTronarkoInicio(), OcorrenciaC.getIntervaloTronarko(), 10, 10));
+                    mPequenosEventos.add(new AvisarPequenoEvento(OcorrenciaC.getNome(), OcorrenciaC.getHiperarko(),
+                            OcorrenciaC.getSuperarko(), OcorrenciaC.getTronarkoInicio(), OcorrenciaC.getIntervaloTronarko(), 10, 10));
 
-				} else if (OcorrenciaC.getQuantidade() > 1) {
+                } else if (OcorrenciaC.getQuantidade() > 1) {
 
-					mGrandesEventos.add(new AvisarGrandeEvento(OcorrenciaC.getNome(), OcorrenciaC.getHiperarko(),
-							OcorrenciaC.getSuperarko(), OcorrenciaC.getHiperarko(), OcorrenciaC.getSuperarkoFim(),
-							OcorrenciaC.getIntervaloTronarko(), OcorrenciaC.getTronarkoInicio(), 100, 15));
+                    mGrandesEventos.add(new AvisarGrandeEvento(OcorrenciaC.getNome(), OcorrenciaC.getHiperarko(),
+                            OcorrenciaC.getSuperarko(), OcorrenciaC.getHiperarko(), OcorrenciaC.getSuperarkoFim(),
+                            OcorrenciaC.getIntervaloTronarko(), OcorrenciaC.getTronarkoInicio(), 100, 15));
 
-				}
+                }
 
-			}
+            }
 
-			if (OcorrenciaC.getPeriodo() == Modos.CICLICO) {
+            if (OcorrenciaC.getPeriodo() == Modos.CICLICO) {
 
-				if (OcorrenciaC.getQuantidade() == 1) {
+                if (OcorrenciaC.getQuantidade() == 1) {
 
 
-					mPequenosEventos.add(new AvisarPequenoEvento(OcorrenciaC.getNome(), OcorrenciaC.getHiperarko(),
-							OcorrenciaC.getSuperarko(), OcorrenciaC.getTronarkoInicio(), OcorrenciaC.getIntervaloTronarko(), 10, 10));
+                    mPequenosEventos.add(new AvisarPequenoEvento(OcorrenciaC.getNome(), OcorrenciaC.getHiperarko(),
+                            OcorrenciaC.getSuperarko(), OcorrenciaC.getTronarkoInicio(), OcorrenciaC.getIntervaloTronarko(), 10, 10));
 
-					
-				} else if (OcorrenciaC.getQuantidade() > 1) {
 
-					mGrandesEventos.add(new AvisarGrandeEvento(OcorrenciaC.getNome(), OcorrenciaC.getHiperarko(),
-							OcorrenciaC.getSuperarko(), OcorrenciaC.getHiperarko(), OcorrenciaC.getSuperarkoFim(),
-							OcorrenciaC.getIntervaloTronarko(), OcorrenciaC.getTronarkoInicio(), 100, 15));
+                } else if (OcorrenciaC.getQuantidade() > 1) {
 
-				}
+                    mGrandesEventos.add(new AvisarGrandeEvento(OcorrenciaC.getNome(), OcorrenciaC.getHiperarko(),
+                            OcorrenciaC.getSuperarko(), OcorrenciaC.getHiperarko(), OcorrenciaC.getSuperarkoFim(),
+                            OcorrenciaC.getIntervaloTronarko(), OcorrenciaC.getTronarkoInicio(), 100, 15));
 
-			}
+                }
 
-		}
+            }
 
-	}
+        }
 
-	public ArrayList<Ocorrencia> getOcorrencias() {
-		ArrayList<Ocorrencia> ret = new ArrayList<Ocorrencia>();
+    }
 
-		for (AvisarPequenoEvento P : mPequenosEventos) {
+    public ArrayList<Ocorrencia> getOcorrencias() {
+        ArrayList<Ocorrencia> ret = new ArrayList<Ocorrencia>();
 
-			ret.add(new Ocorrencia(P.getNome(), P.getSuperarko(), P.getHiperarko(), P.getTronarkoInicio(), 1, P.getIntervalo()));
+        for (AvisarPequenoEvento P : mPequenosEventos) {
 
-		}
+            ret.add(new Ocorrencia(P.getNome(), P.getSuperarko(), P.getHiperarko(), P.getTronarkoInicio(), 1, P.getIntervalo()));
 
-		for (AvisarGrandeEvento G : mGrandesEventos) {
+        }
 
-			ret.add(new Ocorrencia(G.getNome(), G.getSuperarkoInicio(), G.getHiperarkoInicio(), G.getInicio(),
-					G.getDuracao(), G.getIntervalo()));
+        for (AvisarGrandeEvento G : mGrandesEventos) {
 
-		}
+            ret.add(new Ocorrencia(G.getNome(), G.getSuperarkoInicio(), G.getHiperarkoInicio(), G.getInicio(),
+                    G.getDuracao(), G.getIntervalo()));
 
-		return ret;
-	}
+        }
 
-	public void OrdenarPequenosEventos(ArrayList<AvisarPequenoEvento> Entrada) {
+        return ret;
+    }
 
-		int n = Entrada.size();
-		AvisarPequenoEvento temp = null;
+    public void OrdenarPequenosEventos(ArrayList<AvisarPequenoEvento> Entrada) {
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 1; j < (n - i); j++) {
+        int n = Entrada.size();
+        AvisarPequenoEvento temp = null;
 
-				if (Entrada.get(j - 1).getOrdem() >= (Entrada.get(j).getOrdem())) {
-					temp = Entrada.get(j - 1);
-					Entrada.set(j - 1, Entrada.get(j));
-					Entrada.set(j, temp);
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
 
-				}
+                if (Entrada.get(j - 1).getOrdem() >= (Entrada.get(j).getOrdem())) {
+                    temp = Entrada.get(j - 1);
+                    Entrada.set(j - 1, Entrada.get(j));
+                    Entrada.set(j, temp);
 
-			}
-		}
+                }
 
-	}
+            }
+        }
 
-	public void OrdenarGrandesEventos(ArrayList<AvisarGrandeEvento> Entrada) {
+    }
 
-		int n = Entrada.size();
-		AvisarGrandeEvento temp = null;
+    public void OrdenarGrandesEventos(ArrayList<AvisarGrandeEvento> Entrada) {
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 1; j < (n - i); j++) {
+        int n = Entrada.size();
+        AvisarGrandeEvento temp = null;
 
-				if (Entrada.get(j - 1).getOrdem() >= (Entrada.get(j).getOrdem())) {
-					temp = Entrada.get(j - 1);
-					Entrada.set(j - 1, Entrada.get(j));
-					Entrada.set(j, temp);
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
 
-				}
+                if (Entrada.get(j - 1).getOrdem() >= (Entrada.get(j).getOrdem())) {
+                    temp = Entrada.get(j - 1);
+                    Entrada.set(j - 1, Entrada.get(j));
+                    Entrada.set(j, temp);
 
-			}
-		}
+                }
 
-	}
-	
-	public void OrdenarGrandesAvisos(ArrayList<Avisar> Entrada) {
+            }
+        }
 
-		int n = Entrada.size();
-		Avisar temp = null;
+    }
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 1; j < (n - i); j++) {
+    public void OrdenarGrandesAvisos(ArrayList<Avisar> Entrada) {
 
-				if (Entrada.get(j - 1).getOrdem() >= (Entrada.get(j).getOrdem())) {
-					temp = Entrada.get(j - 1);
-					Entrada.set(j - 1, Entrada.get(j));
-					Entrada.set(j, temp);
+        int n = Entrada.size();
+        Avisar temp = null;
 
-				}
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
 
-			}
-		}
+                if (Entrada.get(j - 1).getOrdem() >= (Entrada.get(j).getOrdem())) {
+                    temp = Entrada.get(j - 1);
+                    Entrada.set(j - 1, Entrada.get(j));
+                    Entrada.set(j, temp);
 
-	}
+                }
 
-	public ArrayList<AvisarPequenoEvento> getAvisosPequenosEventos() {
+            }
+        }
 
-		ArrayList<AvisarPequenoEvento> mOrdenados = new ArrayList<AvisarPequenoEvento>();
+    }
 
-		for (AvisarPequenoEvento P : mPequenosEventos) {
-			mOrdenados.add(P);
-		}
+    public ArrayList<AvisarPequenoEvento> getAvisosPequenosEventos() {
 
-		OrdenarPequenosEventos(mOrdenados);
+        ArrayList<AvisarPequenoEvento> mOrdenados = new ArrayList<AvisarPequenoEvento>();
 
-		return mOrdenados;
-	}
+        for (AvisarPequenoEvento P : mPequenosEventos) {
+            mOrdenados.add(P);
+        }
 
-	public ArrayList<AvisarGrandeEvento> getAvisosGrandesEventos() {
+        OrdenarPequenosEventos(mOrdenados);
 
-		ArrayList<AvisarGrandeEvento> mBaguncados = new ArrayList<AvisarGrandeEvento>();
+        return mOrdenados;
+    }
 
-		for (AvisarGrandeEvento P : mGrandesEventos) {
-			mBaguncados.add(P);
-		}
+    public ArrayList<AvisarGrandeEvento> getAvisosGrandesEventos() {
 
-		OrdenarGrandesEventos(mBaguncados);
+        ArrayList<AvisarGrandeEvento> mBaguncados = new ArrayList<AvisarGrandeEvento>();
 
-		return mBaguncados;
-	}
+        for (AvisarGrandeEvento P : mGrandesEventos) {
+            mBaguncados.add(P);
+        }
 
-	public ArrayList<String> Eventos_De(int eTronarko) {
+        OrdenarGrandesEventos(mBaguncados);
 
-		ArrayList<String> ret = new ArrayList<String>();
+        return mBaguncados;
+    }
 
-		for (PequenoEvento P : ProximosPequenosEventos(eTronarko)) {
-			ret.add(P.toString());
+    public ArrayList<String> Eventos_De(int eTronarko) {
 
-		}
+        ArrayList<String> ret = new ArrayList<String>();
 
-		for (GrandeEvento P : ProximosGrandesEventos(eTronarko)) {
-			ret.add(P.toString());
-		}
-		return ret;
-	}
+        for (PequenoEvento P : ProximosPequenosEventos(eTronarko)) {
+            ret.add(P.toString());
 
-	public ArrayList<PequenoEvento> ProximosPequenosEventos(int eTronarko) {
+        }
 
-		ArrayList<PequenoEvento> ret = new ArrayList<PequenoEvento>();
-		ArrayList<AvisarPequenoEvento> mTags = new ArrayList<AvisarPequenoEvento>();
+        for (GrandeEvento P : ProximosGrandesEventos(eTronarko)) {
+            ret.add(P.toString());
+        }
+        return ret;
+    }
 
-		for (AvisarPequenoEvento TozteCorrente : getAvisosPequenosEventos()) {
+    public ArrayList<PequenoEvento> ProximosPequenosEventos(int eTronarko) {
 
-			mTags.add(TozteCorrente);
+        ArrayList<PequenoEvento> ret = new ArrayList<PequenoEvento>();
 
-		}
+        ArrayList<AvisarPequenoEvento> mPequenosEventos = getAvisosPequenosEventos();
 
-		OrdenarPequenosEventos(mTags);
+        OrdenarPequenosEventos(mPequenosEventos);
 
-		for (AvisarPequenoEvento TozteCorrente : mTags) {
+        for (AvisarPequenoEvento TozteCorrente : mPequenosEventos) {
 
-			
-			int Edicao = 1;
 
-			int TronarkoInicio = TozteCorrente.getInicio();
-			while (TronarkoInicio < eTronarko) {
-				TronarkoInicio += TozteCorrente.getIntervalo();
-				Edicao += 1;
-			}
-			
-			
-			Tozte TozteC = new Tozte(TozteCorrente.getSuperarko(), TozteCorrente.getHiperarko(), TronarkoInicio);
+            int mEdicao = 1;
 
-			if (TozteC.getTronarko() == eTronarko) {
+            int TronarkoInicio = TozteCorrente.getInicio();
+            while (TronarkoInicio < eTronarko) {
+                TronarkoInicio += TozteCorrente.getIntervalo();
+                mEdicao += 1;
+            }
 
-				ret.add(new PequenoEvento(TozteCorrente.getNome(), TozteC));
 
-			}
+            Tozte TozteC = new Tozte(TozteCorrente.getSuperarko(), TozteCorrente.getHiperarko(), TronarkoInicio);
 
-		}
+            if (TozteC.getTronarko() == eTronarko) {
 
-		return ret;
-	}
+                ret.add(new PequenoEvento(TozteCorrente.getNome(), TozteC));
 
-	public void ListarPequenosEventosDe(String eGrandeEvento, int eAteTronarko) {
+            }
 
-		int tamanho = mPequenosEventos.size();
-		int indice = 0;
+        }
 
-		while (indice < tamanho) {
-			AvisarPequenoEvento TozteCorrente = mPequenosEventos.get(indice);
+        return ret;
+    }
 
-			if (TozteCorrente.getNome().contentEquals(eGrandeEvento)) {
+    public void ListarPequenosEventosDe(String eGrandeEvento, int eAteTronarko) {
 
-				int Edicao = 1;
+        int tamanho = mPequenosEventos.size();
+        int indice = 0;
 
-				int TronarkoInicio = TozteCorrente.getInicio();
-				while (TronarkoInicio < eAteTronarko) {
+        while (indice < tamanho) {
+            AvisarPequenoEvento TozteCorrente = mPequenosEventos.get(indice);
 
-					System.out.println(Edicao + " : " + eGrandeEvento + " - " + TronarkoInicio);
+            if (TozteCorrente.getNome().contentEquals(eGrandeEvento)) {
 
-					TronarkoInicio += TozteCorrente.getIntervalo();
-					Edicao += 1;
-				}
-			}
-			indice += 1;
-		}
-	}
-	
-	public void ListarGrandesEventos(String eGrandeEvento, int eAteTronarko) {
+                int Edicao = 1;
 
-		int tamanho = mGrandesEventos.size();
-		int indice = 0;
+                int TronarkoInicio = TozteCorrente.getInicio();
+                while (TronarkoInicio < eAteTronarko) {
 
-		while (indice < tamanho) {
-			AvisarGrandeEvento TozteCorrente = mGrandesEventos.get(indice);
+                    System.out.println(Edicao + " : " + eGrandeEvento + " - " + TronarkoInicio);
 
-			if (TozteCorrente.getNome().contentEquals(eGrandeEvento)) {
+                    TronarkoInicio += TozteCorrente.getIntervalo();
+                    Edicao += 1;
+                }
+            }
+            indice += 1;
+        }
+    }
 
-				int Edicao = 1;
+    public void ListarGrandesEventos(String eGrandeEvento, int eAteTronarko) {
 
-				int TronarkoInicio = TozteCorrente.getInicio();
-				while (TronarkoInicio < eAteTronarko) {
+        int tamanho = mGrandesEventos.size();
+        int indice = 0;
 
-					System.out.println(Edicao + " : " + eGrandeEvento + " - " + TronarkoInicio);
+        while (indice < tamanho) {
+            AvisarGrandeEvento TozteCorrente = mGrandesEventos.get(indice);
 
-					TronarkoInicio += TozteCorrente.getIntervalo();
-					Edicao += 1;
-				}
-			}
-			indice += 1;
-		}
-	}
-	
-	public void ListarEventos_Entre( int eDeTronarko, int eAteTronarko) {
-	
-	
+            if (TozteCorrente.getNome().contentEquals(eGrandeEvento)) {
 
-		ArrayList<Avisar> Avisos = new ArrayList<Avisar>();
-		
-		for(AvisarPequenoEvento TozteCorrente:mPequenosEventos) {		
+                int Edicao = 1;
 
-				int Edicao = 1;
+                int TronarkoInicio = TozteCorrente.getInicio();
+                while (TronarkoInicio < eAteTronarko) {
 
-				int TronarkoInicio = TozteCorrente.getInicio();
-				while (TronarkoInicio < eAteTronarko) {
+                    System.out.println(Edicao + " : " + eGrandeEvento + " - " + TronarkoInicio);
 
-					if (TronarkoInicio >= eDeTronarko) {
-						Avisos.add(new Avisar(TozteCorrente.getNome(),TozteCorrente.getSuperarko(),TozteCorrente.getHiperarko(),TronarkoInicio,Edicao));		
-					}
+                    TronarkoInicio += TozteCorrente.getIntervalo();
+                    Edicao += 1;
+                }
+            }
+            indice += 1;
+        }
+    }
 
-					TronarkoInicio += TozteCorrente.getIntervalo();
-					Edicao += 1;
-				}
-			
-		}
-		
-		for(AvisarGrandeEvento TozteCorrente:mGrandesEventos) {		
+    public void ListarEventos_Entre(int eDeTronarko, int eAteTronarko) {
 
-			int Edicao = 1;
 
-			int TronarkoInicio = TozteCorrente.getInicio();
-			while (TronarkoInicio < eAteTronarko) {
+        ArrayList<Avisar> Avisos = new ArrayList<Avisar>();
 
-				if (TronarkoInicio >= eDeTronarko) {
-					Avisos.add(new Avisar(TozteCorrente.getNome(),TozteCorrente.getSuperarkoInicio(),TozteCorrente.getHiperarkoInicio(),TronarkoInicio,Edicao));		
-				}
+        for (AvisarPequenoEvento TozteCorrente : mPequenosEventos) {
 
-				TronarkoInicio += TozteCorrente.getIntervalo();
-				Edicao += 1;
-			}
-		
-	}
-		
-		OrdenarGrandesAvisos(Avisos);
-		
-		
-		for(Avisar AvisoC:Avisos) {		
-			System.out.println(AvisoC.toString());
-		}
-	}
-	
-	public void ListarPequenosEventos_Entre(String eGrandeEvento, int eDeTronarko, int eAteTronarko) {
+            int Edicao = 1;
 
-		int tamanho = mPequenosEventos.size();
-		int indice = 0;
+            int TronarkoInicio = TozteCorrente.getInicio();
+            while (TronarkoInicio < eAteTronarko) {
 
-		while (indice < tamanho) {
-			AvisarPequenoEvento TozteCorrente = mPequenosEventos.get(indice);
+                if (TronarkoInicio >= eDeTronarko) {
+                    Avisos.add(new Avisar(TozteCorrente.getNome(), TozteCorrente.getSuperarko(), TozteCorrente.getHiperarko(), TronarkoInicio, Edicao));
+                }
 
-			if (TozteCorrente.getNome().contentEquals(eGrandeEvento)) {
+                TronarkoInicio += TozteCorrente.getIntervalo();
+                Edicao += 1;
+            }
 
-				int Edicao = 1;
+        }
 
-				int TronarkoInicio = TozteCorrente.getInicio();
-				while (TronarkoInicio < eAteTronarko) {
+        for (AvisarGrandeEvento TozteCorrente : mGrandesEventos) {
 
-					if (TronarkoInicio >= eDeTronarko) {
+            int Edicao = 1;
 
-						System.out.println(Edicao + " : " + eGrandeEvento + " - " + TronarkoInicio);
+            int TronarkoInicio = TozteCorrente.getInicio();
+            while (TronarkoInicio < eAteTronarko) {
 
-					}
+                if (TronarkoInicio >= eDeTronarko) {
+                    Avisos.add(new Avisar(TozteCorrente.getNome(), TozteCorrente.getSuperarkoInicio(), TozteCorrente.getHiperarkoInicio(), TronarkoInicio, Edicao));
+                }
 
-					TronarkoInicio += TozteCorrente.getIntervalo();
-					Edicao += 1;
-				}
-			}
-			indice += 1;
-		}
-	}
+                TronarkoInicio += TozteCorrente.getIntervalo();
+                Edicao += 1;
+            }
 
-	public void ListarGrandesEventos_Entre(String eGrandeEvento, int eDeTronarko, int eAteTronarko) {
+        }
 
-		int tamanho = mGrandesEventos.size();
-		int indice = 0;
+        OrdenarGrandesAvisos(Avisos);
 
-		while (indice < tamanho) {
-			AvisarGrandeEvento TozteCorrente = mGrandesEventos.get(indice);
 
-			if (TozteCorrente.getNome().contentEquals(eGrandeEvento)) {
+        for (Avisar AvisoC : Avisos) {
+            System.out.println(AvisoC.toString());
+        }
+    }
 
-				int Edicao = 1;
+    public void ListarPequenosEventos_Entre(String eGrandeEvento, int eDeTronarko, int eAteTronarko) {
 
-				int TronarkoInicio = TozteCorrente.getInicio();
-				while (TronarkoInicio < eAteTronarko) {
+        int tamanho = mPequenosEventos.size();
+        int indice = 0;
 
-					if (TronarkoInicio >= eDeTronarko) {
+        while (indice < tamanho) {
+            AvisarPequenoEvento TozteCorrente = mPequenosEventos.get(indice);
 
-						System.out.println(Edicao + " : " + eGrandeEvento + " - " + TronarkoInicio);
+            if (TozteCorrente.getNome().contentEquals(eGrandeEvento)) {
 
-					}
+                int Edicao = 1;
 
-					TronarkoInicio += TozteCorrente.getIntervalo();
-					Edicao += 1;
-				}
-			}
-			indice += 1;
-		}
-	}
+                int TronarkoInicio = TozteCorrente.getInicio();
+                while (TronarkoInicio < eAteTronarko) {
 
-	public ArrayList<GrandeEvento> ProximosGrandesEventos(int eTronarko) {
+                    if (TronarkoInicio >= eDeTronarko) {
 
-		ArrayList<AvisarGrandeEvento> SAT = new ArrayList<AvisarGrandeEvento>();
-		for (AvisarGrandeEvento TozteCorrente : mGrandesEventos) {
+                        System.out.println(Edicao + " : " + eGrandeEvento + " - " + TronarkoInicio);
 
-			int Edicao = 1;
+                    }
 
-			int TronarkoInicio = TozteCorrente.getInicio();
-			while (TronarkoInicio < eTronarko) {
-				TronarkoInicio += TozteCorrente.getIntervalo();
-				Edicao += 1;
-			}
+                    TronarkoInicio += TozteCorrente.getIntervalo();
+                    Edicao += 1;
+                }
+            }
+            indice += 1;
+        }
+    }
 
-			AvisarGrandeEvento SATC = new AvisarGrandeEvento(TozteCorrente.getNome(),
-					TozteCorrente.getHiperarkoInicio(), TozteCorrente.getSuperarkoInicio(),
-					TozteCorrente.getHiperarkoFim(), TozteCorrente.getSuperarkoFim(), TozteCorrente.getIntervalo(),
-					TozteCorrente.getInicio(), TozteCorrente.getAntes(), TozteCorrente.getDepois());
+    public void ListarGrandesEventos_Entre(String eGrandeEvento, int eDeTronarko, int eAteTronarko) {
 
-			SATC.setTronarko(TronarkoInicio);
-			SATC.setEdicao(Edicao);
+        int tamanho = mGrandesEventos.size();
+        int indice = 0;
 
-			SAT.add(SATC);
+        while (indice < tamanho) {
+            AvisarGrandeEvento TozteCorrente = mGrandesEventos.get(indice);
 
-		}
+            if (TozteCorrente.getNome().contentEquals(eGrandeEvento)) {
 
-		OrdenarGrandesEventos(SAT);
+                int Edicao = 1;
 
-		ArrayList<GrandeEvento> mRetorno = new ArrayList<GrandeEvento>();
+                int TronarkoInicio = TozteCorrente.getInicio();
+                while (TronarkoInicio < eAteTronarko) {
 
-		for (AvisarGrandeEvento AvisoCorrente : SAT) {
+                    if (TronarkoInicio >= eDeTronarko) {
 
-			Tozte eInicio = new Tozte(AvisoCorrente.getSuperarkoInicio(), AvisoCorrente.getHiperarkoInicio(),
-					AvisoCorrente.getTronarko());
-			Tozte eFim = new Tozte(AvisoCorrente.getSuperarkoFim(), AvisoCorrente.getHiperarkoFim(),
-					AvisoCorrente.getTronarko());
+                        System.out.println(Edicao + " : " + eGrandeEvento + " - " + TronarkoInicio);
 
-			if (eInicio.getTronarko() == eTronarko) {
-				mRetorno.add(new GrandeEvento(AvisoCorrente.getNome(), AvisoCorrente.getIntervalo(),
-						AvisoCorrente.getInicio(), eInicio, eFim, AvisoCorrente.getEdicao()));
-			}
+                    }
 
-		}
+                    TronarkoInicio += TozteCorrente.getIntervalo();
+                    Edicao += 1;
+                }
+            }
+            indice += 1;
+        }
+    }
 
-		return mRetorno;
-	}
+    public ArrayList<GrandeEvento> ProximosGrandesEventos(int eTronarko) {
 
-	public ArrayList<String> EventosDoTozte(Tozte TozteC) {
-		ArrayList<String> ret = new ArrayList<String>();
+        ArrayList<AvisarGrandeEvento> SAT = new ArrayList<AvisarGrandeEvento>();
+        for (AvisarGrandeEvento TozteCorrente : mGrandesEventos) {
 
-		for (AvisarPequenoEvento EventoCorrente : mPequenosEventos) {
+            int Edicao = 1;
 
-			if (EventoCorrente.getSuperarko() == TozteC.getSuperarko()
-					&& EventoCorrente.getHiperarko() == TozteC.getHiperarko()) {
+            int TronarkoInicio = TozteCorrente.getInicio();
+            while (TronarkoInicio < eTronarko) {
+                TronarkoInicio += TozteCorrente.getIntervalo();
+                Edicao += 1;
+            }
 
-				ret.add(EventoCorrente.getNome() + "  ->  [ " + EventoCorrente.getSuperarko() + "/"
-						+ EventoCorrente.getHiperarko() + "/" + TozteC.getTronarko() + " ]");
+            AvisarGrandeEvento SATC = new AvisarGrandeEvento(TozteCorrente.getNome(),
+                    TozteCorrente.getHiperarkoInicio(), TozteCorrente.getSuperarkoInicio(),
+                    TozteCorrente.getHiperarkoFim(), TozteCorrente.getSuperarkoFim(), TozteCorrente.getIntervalo(),
+                    TozteCorrente.getInicio(), TozteCorrente.getAntes(), TozteCorrente.getDepois());
 
-			}
+            SATC.setTronarko(TronarkoInicio);
+            SATC.setEdicao(Edicao);
 
-		}
+            SAT.add(SATC);
 
-		return ret;
-	}
+        }
 
-	public ArrayList<String> GrandesEventosDoTozte(Tozte TozteC, ArrayList<AvisarGrandeEvento> lsGrandesEventos) {
-		ArrayList<String> ret = new ArrayList<String>();
+        OrdenarGrandesEventos(SAT);
 
-		for (AvisarGrandeEvento GE : lsGrandesEventos) {
+        ArrayList<GrandeEvento> mRetorno = new ArrayList<GrandeEvento>();
 
-			if (GE.getSuperarkoInicio() == TozteC.getSuperarko() && GE.getHiperarkoInicio() == TozteC.getHiperarko()
-					&& GE.getTronarko() == TozteC.getTronarko()) {
+        for (AvisarGrandeEvento AvisoCorrente : SAT) {
 
-				ret.add(GE.getNome() + "  ->  [ " + GE.getSuperarkoInicio() + "/" + GE.getHiperarkoInicio() + "/"
-						+ GE.getTronarko() + " a " + GE.getSuperarkoFim() + "/" + GE.getHiperarkoFim() + "/"
-						+ GE.getTronarko() + " ] a cada " + GE.getIntervalo() + " desde " + GE.getInicio()
-						+ " Edicao : " + GE.getEdicao());
+            Tozte eInicio = new Tozte(AvisoCorrente.getSuperarkoInicio(), AvisoCorrente.getHiperarkoInicio(),
+                    AvisoCorrente.getTronarko());
+            Tozte eFim = new Tozte(AvisoCorrente.getSuperarkoFim(), AvisoCorrente.getHiperarkoFim(),
+                    AvisoCorrente.getTronarko());
 
-			}
+            if (eInicio.getTronarko() == eTronarko) {
+                mRetorno.add(new GrandeEvento(AvisoCorrente.getNome(), AvisoCorrente.getIntervalo(),
+                        AvisoCorrente.getInicio(), eInicio, eFim, AvisoCorrente.getEdicao()));
+            }
 
-		}
+        }
 
-		return ret;
-	}
+        return mRetorno;
+    }
 
-	private ArrayList<AvisarGrandeEvento> GrandesEventos_EntreTronarkos(int MinTronarko, int MaxTronarko) {
+    public ArrayList<String> EventosDoTozte(Tozte TozteC) {
+        ArrayList<String> ret = new ArrayList<String>();
 
-		int tamanho = mGrandesEventos.size();
-		int indice = 0;
+        for (AvisarPequenoEvento EventoCorrente : mPequenosEventos) {
 
-		ArrayList<AvisarGrandeEvento> SAT = new ArrayList<AvisarGrandeEvento>();
+            if (EventoCorrente.getSuperarko() == TozteC.getSuperarko()
+                    && EventoCorrente.getHiperarko() == TozteC.getHiperarko()) {
 
-		while (indice < tamanho) {
-			AvisarGrandeEvento TozteCorrente = mGrandesEventos.get(indice);
+                ret.add(EventoCorrente.getNome() + "  ->  [ " + EventoCorrente.getSuperarko() + "/"
+                        + EventoCorrente.getHiperarko() + "/" + TozteC.getTronarko() + " ]");
 
-			int Edicao = 1;
+            }
 
-			int TronarkoInicio = TozteCorrente.getInicio();
-			while (TronarkoInicio <= MaxTronarko) {
+        }
 
-				if (TronarkoInicio >= MinTronarko && TronarkoInicio <= MaxTronarko) {
+        return ret;
+    }
 
-					AvisarGrandeEvento SATC = new AvisarGrandeEvento(TozteCorrente.getNome(),
-							TozteCorrente.getHiperarkoInicio(), TozteCorrente.getSuperarkoInicio(),
-							TozteCorrente.getHiperarkoFim(), TozteCorrente.getSuperarkoFim(),
-							TozteCorrente.getIntervalo(), TozteCorrente.getInicio(), TozteCorrente.getAntes(),
-							TozteCorrente.getDepois());
+    public ArrayList<String> GrandesEventosDoTozte(Tozte TozteC, ArrayList<AvisarGrandeEvento> lsGrandesEventos) {
+        ArrayList<String> ret = new ArrayList<String>();
 
-					SATC.setTronarko(TronarkoInicio);
-					SATC.setEdicao(Edicao);
+        for (AvisarGrandeEvento GE : lsGrandesEventos) {
 
-					SAT.add(SATC);
+            if (GE.getSuperarkoInicio() == TozteC.getSuperarko() && GE.getHiperarkoInicio() == TozteC.getHiperarko()
+                    && GE.getTronarko() == TozteC.getTronarko()) {
 
-				}
+                ret.add(GE.getNome() + "  ->  [ " + GE.getSuperarkoInicio() + "/" + GE.getHiperarkoInicio() + "/"
+                        + GE.getTronarko() + " a " + GE.getSuperarkoFim() + "/" + GE.getHiperarkoFim() + "/"
+                        + GE.getTronarko() + " ] a cada " + GE.getIntervalo() + " desde " + GE.getInicio()
+                        + " Edicao : " + GE.getEdicao());
 
-				TronarkoInicio += TozteCorrente.getIntervalo();
-				Edicao += 1;
-			}
+            }
 
-			if (TronarkoInicio < MaxTronarko) {
-				TronarkoInicio = TronarkoInicio + TozteCorrente.getIntervalo();
-			}
+        }
 
-			indice += 1;
-		}
+        return ret;
+    }
 
-		return SAT;
+    private ArrayList<AvisarGrandeEvento> GrandesEventos_EntreTronarkos(int MinTronarko, int MaxTronarko) {
 
-	}
+        int tamanho = mGrandesEventos.size();
+        int indice = 0;
 
-	public ArrayList<String> EventosDesde(Tozte TozteC, int eSuperarkos) {
-		ArrayList<String> ret = new ArrayList<String>();
+        ArrayList<AvisarGrandeEvento> SAT = new ArrayList<AvisarGrandeEvento>();
 
-		ArrayList<AvisarGrandeEvento> GrandesEventosEntreTronarkos = GrandesEventos_EntreTronarkos(TozteC.getTronarko(),
-				TozteC.adicionar_Superarko(eSuperarkos).getTronarko());
+        while (indice < tamanho) {
+            AvisarGrandeEvento TozteCorrente = mGrandesEventos.get(indice);
 
-		for (int i = 0; i < eSuperarkos; i++) {
+            int Edicao = 1;
 
-			Tozte Novo = TozteC.adicionar_Superarko(i);
+            int TronarkoInicio = TozteCorrente.getInicio();
+            while (TronarkoInicio <= MaxTronarko) {
 
-			for (String eS : EventosDoTozte(Novo)) {
-				String NovoString = eS;
-				if (!ret.contains(NovoString)) {
-					ret.add(NovoString);
-				}
-			}
+                if (TronarkoInicio >= MinTronarko && TronarkoInicio <= MaxTronarko) {
 
-			for (String eS : GrandesEventosDoTozte(Novo, GrandesEventosEntreTronarkos)) {
-				String NovoString = eS;
+                    AvisarGrandeEvento SATC = new AvisarGrandeEvento(TozteCorrente.getNome(),
+                            TozteCorrente.getHiperarkoInicio(), TozteCorrente.getSuperarkoInicio(),
+                            TozteCorrente.getHiperarkoFim(), TozteCorrente.getSuperarkoFim(),
+                            TozteCorrente.getIntervalo(), TozteCorrente.getInicio(), TozteCorrente.getAntes(),
+                            TozteCorrente.getDepois());
 
-				if (!ret.contains(NovoString)) {
-					ret.add(NovoString);
-				}
-			}
+                    SATC.setTronarko(TronarkoInicio);
+                    SATC.setEdicao(Edicao);
 
-		}
+                    SAT.add(SATC);
 
-		return ret;
+                }
 
-	}
+                TronarkoInicio += TozteCorrente.getIntervalo();
+                Edicao += 1;
+            }
 
-	public ArrayList<TozteCor> getLegenda(ArrayList<TozteCor> ToztesComCor) {
+            if (TronarkoInicio < MaxTronarko) {
+                TronarkoInicio = TronarkoInicio + TozteCorrente.getIntervalo();
+            }
 
-		ArrayList<TozteCor> ToztesComCorUnico = new ArrayList<TozteCor>();
-		for (TozteCor e : ToztesComCor) {
-			boolean enc = false;
+            indice += 1;
+        }
 
-			for (TozteCor u : ToztesComCorUnico) {
-				if (u.getNome().contentEquals(e.getNome())) {
-					enc = true;
-					u.adicionar_Tozte(e.getTozte());
-			break;
-				}
-			}
+        return SAT;
 
-			if (enc == false) {
-				e.adicionar_Tozte(e.getTozte());
-				ToztesComCorUnico.add(e);
-			}
-		}
-		
-		
-		int n = ToztesComCorUnico.size();
-		TozteCor temp = null;
+    }
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 1; j < (n - i); j++) {
+    public ArrayList<String> EventosDesde(Tozte TozteC, int eSuperarkos) {
+        ArrayList<String> ret = new ArrayList<String>();
 
-				if (ToztesComCorUnico.get(j - 1).getOrdem() >= (ToztesComCorUnico.get(j).getOrdem())) {
-					temp = ToztesComCorUnico.get(j - 1);
-					ToztesComCorUnico.set(j - 1, ToztesComCorUnico.get(j));
-					ToztesComCorUnico.set(j, temp);
+        ArrayList<AvisarGrandeEvento> GrandesEventosEntreTronarkos = GrandesEventos_EntreTronarkos(TozteC.getTronarko(),
+                TozteC.adicionar_Superarko(eSuperarkos).getTronarko());
 
-				}
+        for (int i = 0; i < eSuperarkos; i++) {
 
-			}
-		}
-		
-		
-		return ToztesComCorUnico;
-	}
+            Tozte Novo = TozteC.adicionar_Superarko(i);
 
-	public ArrayList<TozteCor> getToztesComCor(int eTronarko) {
+            for (String eS : EventosDoTozte(Novo)) {
+                String NovoString = eS;
+                if (!ret.contains(NovoString)) {
+                    ret.add(NovoString);
+                }
+            }
 
-		ArrayList<TozteCor> ToztesComCor = new ArrayList<TozteCor>();
+            for (String eS : GrandesEventosDoTozte(Novo, GrandesEventosEntreTronarkos)) {
+                String NovoString = eS;
 
-		for (PequenoEvento e : ProximosPequenosEventos(eTronarko)) {
+                if (!ret.contains(NovoString)) {
+                    ret.add(NovoString);
+                }
+            }
 
-			Color eCor = getCor(e.getNome());
+        }
 
-			ToztesComCor.add(new TozteCor(e.getNome(), e.getTozte(), eCor));
+        return ret;
 
-		}
+    }
 
-		for (GrandeEvento e : ProximosGrandesEventos(eTronarko)) {
+    public ArrayList<TozteCor> getLegenda(ArrayList<TozteCor> ToztesComCor) {
 
-			boolean remover = false;
-			String RemoverEsse = "";
+        ArrayList<TozteCor> ToztesComCorUnico = new ArrayList<TozteCor>();
+        for (TozteCor e : ToztesComCor) {
+            boolean enc = false;
 
-			if (e.getNome().contentEquals("Corrida dos Ventos")) {
-				remover = true;
-				RemoverEsse = "Festival do Vento";
-			}
+            for (TozteCor u : ToztesComCorUnico) {
+                if (u.getNome().contentEquals(e.getNome())) {
+                    enc = true;
+                    u.adicionar_Tozte(e.getTozte());
+                    break;
+                }
+            }
 
-			if (e.getNome().contentEquals("Cruzada das Águas")) {
-				remover = true;
-				RemoverEsse = "Festival da Água";
-			}
+            if (enc == false) {
+                e.adicionar_Tozte(e.getTozte());
+                ToztesComCorUnico.add(e);
+            }
+        }
 
-			if (e.getNome().contentEquals("Emboscada da Terra")) {
-				remover = true;
-				RemoverEsse = "Festival da Terra";
-			}
 
-			if (e.getNome().contentEquals("Jornada do Fogo")) {
-				remover = true;
-				RemoverEsse = "Festival do Fogo";
-			}
+        int n = ToztesComCorUnico.size();
+        TozteCor temp = null;
 
-			if (remover) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
 
-				for (TozteCor u : ToztesComCor) {
-					if (u.getNome().contentEquals(RemoverEsse)) {
-						ToztesComCor.remove(u);
-						break;
-					}
-				}
+                if (ToztesComCorUnico.get(j - 1).getOrdem() >= (ToztesComCorUnico.get(j).getOrdem())) {
+                    temp = ToztesComCorUnico.get(j - 1);
+                    ToztesComCorUnico.set(j - 1, ToztesComCorUnico.get(j));
+                    ToztesComCorUnico.set(j, temp);
 
-			}
+                }
 
-			Color eCor = getCor(e.getNome());
+            }
+        }
 
-			for (Tozte T1 : e.getToztes()) {
 
-				ToztesComCor.add(new TozteCor(e.getNome(), T1.getCopia(), eCor));
+        return ToztesComCorUnico;
+    }
 
-			}
-		}
+    private ArrayList<TozteCor> removerMenorPorMaior(String eMaior, ArrayList<TozteCor> lsToztesComCor) {
 
-		return ToztesComCor;
-	}
+        ArrayList<TozteCor> mRet = new ArrayList<TozteCor>();
+        for (TozteCor eTozteCor : lsToztesComCor) {
+            mRet.add(eTozteCor);
+        }
 
+        boolean remover = false;
+        String RemoverEsse = "";
 
-	public Color getCor(String eNome) {
+        if (eMaior.contentEquals("Corrida dos Ventos")) {
+            remover = true;
+            RemoverEsse = "Festival do Vento";
+        }
 
-		Color eCor = Color.BLACK;
+        if (eMaior.contentEquals("Cruzada das Águas")) {
+            remover = true;
+            RemoverEsse = "Festival da Água";
+        }
 
-		if (eNome.contains("Reciclum")) {
-			eCor = Color.GRAY;
-		}
+        if (eMaior.contentEquals("Emboscada da Terra")) {
+            remover = true;
+            RemoverEsse = "Festival da Terra";
+        }
 
-		if (eNome.contains("Fogo")) {
-			eCor = Color.red;
-		}
+        if (eMaior.contentEquals("Jornada do Fogo")) {
+            remover = true;
+            RemoverEsse = "Festival do Fogo";
+        }
 
-		if (eNome.contains("Água")) {
-			eCor = new Color(92, 80, 200);
-		}
+        if (remover) {
 
-		if (eNome.contains("Terra")) {
-			eCor = new Color(92, 140, 10);
-		}
+            for (TozteCor u : mRet) {
+                if (u.getNome().contentEquals(RemoverEsse)) {
+                    mRet.remove(u);
+                    break;
+                }
+            }
 
-		if (eNome.contains("Trovão")) {
-			eCor = new Color(92, 140, 10);
-		}
+        }
 
-		
-		if (eNome.contains("Vento")) {
-			eCor = new Color(92, 140, 208);
-		}
+        return mRet;
+    }
 
-		if (eNome.contains("Hazzo")) {
-			eCor = new Color(255, 165, 23);
-		}
+    public ArrayList<TozteCor> getToztesComCor(int eTronarko) {
 
-		if (eNome.contains("Colheita")) {
-			eCor = new Color(159, 95, 159);
-		}
+        ArrayList<TozteCor> ToztesComCor = new ArrayList<TozteCor>();
 
-		if (eNome.contains("Trannor")) {
-			eCor = new Color(107, 142, 35);
-		}
+        for (PequenoEvento e : ProximosPequenosEventos(eTronarko)) {
 
-		if (eNome.contains("Izzator")) {
-			eCor = new Color(74, 118, 110);
-		}
+            ToztesComCor.add(new TozteCor(e.getNome(), e.getTozte(), getCor(e.getNome())));
 
-		if (eNome.contains("Labirinto")) {
-			eCor = new Color(154, 205, 50);
-		}
-		
-		return eCor;
-	}
+        }
+
+        for (GrandeEvento e : ProximosGrandesEventos(eTronarko)) {
+
+            ToztesComCor = removerMenorPorMaior(e.getNome(), ToztesComCor);
+
+            for (Tozte T1 : e.getToztes()) {
+                ToztesComCor.add(new TozteCor(e.getNome(), T1.getCopia(), getCor(e.getNome())));
+            }
+        }
+
+        return ToztesComCor;
+    }
+
+    public ArrayList<TozteCor> getToztesComCorHiperarko(int eHiperarko, int eTronarko) {
+
+        ArrayList<TozteCor> ToztesComCor = new ArrayList<TozteCor>();
+
+        for (PequenoEvento e : ProximosPequenosEventos(eTronarko)) {
+
+            ToztesComCor.add(new TozteCor(e.getNome(), e.getTozte(), getCor(e.getNome())));
+
+        }
+
+        for (GrandeEvento e : ProximosGrandesEventos(eTronarko)) {
+
+            ToztesComCor = removerMenorPorMaior(e.getNome(), ToztesComCor);
+
+            for (Tozte T1 : e.getToztes()) {
+                ToztesComCor.add(new TozteCor(e.getNome(), T1.getCopia(), getCor(e.getNome())));
+            }
+        }
+
+        ArrayList<TozteCor> mFiltrando = new ArrayList<TozteCor>();
+        for (TozteCor e : ToztesComCor) {
+
+            if (e.getTozte().getHiperarko() == eHiperarko) {
+                mFiltrando.add(e);
+            }
+
+        }
+
+        return mFiltrando;
+    }
+
+    public ArrayList<TozteCor> getToztesComCorEmIntervalo(Tozte eAntes, Tozte eDepois) {
+
+
+        System.out.println("-->> ANTES : " + eAntes.getTexto());
+        System.out.println("-->> DEPOIS : " + eDepois.getTexto());
+
+
+        if (eAntes.MaiorQue(eDepois)) {
+            Tozte tmp = eAntes;
+            eAntes = eDepois;
+            eDepois = tmp;
+        }
+
+
+        ArrayList<TozteCor> ToztesComCor = new ArrayList<TozteCor>();
+
+        if (eAntes.getTronarko() == eDepois.getTronarko()) {
+
+            int eTronarko = eAntes.getTronarko();
+
+            for (PequenoEvento e : ProximosPequenosEventos(eTronarko)) {
+
+                ToztesComCor.add(new TozteCor(e.getNome(), e.getTozte(), getCor(e.getNome())));
+
+            }
+
+            for (GrandeEvento e : ProximosGrandesEventos(eTronarko)) {
+
+                ToztesComCor = removerMenorPorMaior(e.getNome(), ToztesComCor);
+
+                for (Tozte T1 : e.getToztes()) {
+                    ToztesComCor.add(new TozteCor(e.getNome(), T1.getCopia(), getCor(e.getNome())));
+                }
+            }
+
+        } else {
+
+            int eTronarko1 = eAntes.getTronarko();
+            int eTronarko2 = eDepois.getTronarko();
+
+
+            for (int eTronarko = eTronarko1; eTronarko <= eTronarko2; eTronarko++) {
+
+                for (PequenoEvento e : ProximosPequenosEventos(eTronarko)) {
+
+                    ToztesComCor.add(new TozteCor(e.getNome(), e.getTozte(), getCor(e.getNome())));
+
+                }
+
+                for (GrandeEvento e : ProximosGrandesEventos(eTronarko)) {
+
+                    ToztesComCor = removerMenorPorMaior(e.getNome(), ToztesComCor);
+
+                    for (Tozte T1 : e.getToztes()) {
+                        ToztesComCor.add(new TozteCor(e.getNome(), T1.getCopia(), getCor(e.getNome())));
+                    }
+                }
+
+            }
+
+        }
+
+        ArrayList<TozteCor> mFiltrando = new ArrayList<TozteCor>();
+
+        for (TozteCor e : ToztesComCor) {
+
+            if (e.getTozte().MaiorIgualQue(eAntes) && e.getTozte().MenorIgualQue(eDepois)) {
+                mFiltrando.add(e);
+            }
+
+        }
+
+
+        return mFiltrando;
+    }
+
+
+    public Color getCor(String eNome) {
+
+        Color eCor = Color.BLACK;
+
+        if (eNome.contains("Reciclum")) {
+            eCor = Color.GRAY;
+        }
+
+        if (eNome.contains("Fogo")) {
+            eCor = Color.red;
+        }
+
+        if (eNome.contains("Água")) {
+            eCor = new Color(92, 80, 200);
+        }
+
+        if (eNome.contains("Terra")) {
+            eCor = new Color(92, 140, 10);
+        }
+
+        if (eNome.contains("Trovão")) {
+            eCor = new Color(92, 140, 10);
+        }
+
+
+        if (eNome.contains("Vento")) {
+            eCor = new Color(92, 140, 208);
+        }
+
+        if (eNome.contains("Hazzo")) {
+            eCor = new Color(255, 165, 23);
+        }
+
+        if (eNome.contains("Colheita")) {
+            eCor = new Color(159, 95, 159);
+        }
+
+        if (eNome.contains("Trannor")) {
+            eCor = new Color(107, 142, 35);
+        }
+
+        if (eNome.contains("Izzator")) {
+            eCor = new Color(74, 118, 110);
+        }
+
+        if (eNome.contains("Labirinto")) {
+            eCor = new Color(154, 205, 50);
+        }
+
+        return eCor;
+    }
 
 }

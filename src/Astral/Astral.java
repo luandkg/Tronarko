@@ -5,11 +5,8 @@ import java.util.Calendar;
 
 import Empacotador.Empacotador;
 import Empacotador.Pacote;
+import Tronarko.Harrempluz.Harrem;
 import Tronarko.Harrempluz.Harrempluz;
-import Tronarko.Harrempluz.Harrempluz.Harrem;
-import Tronarko.Harrempluz.Harrempluz.HarremItem;
-import Tronarko.Harrempluz.Harrempluz.HarremMegarko;
-import Tronarko.Harrempluz.Harrempluz.HarremSigno;
 
 public class Astral {
 
@@ -20,11 +17,9 @@ public class Astral {
 
 		for (int t = 0; t < 10000; t++) {
 
-			System.out.println(eNome + " " + t + " -->> " + getEspaco(t) + " :: " +
-					getSubEspaco(t));
+			System.out.println(eNome + " " + t + " -->> " + getEspaco(t) + " :: " + getSubEspaco(t));
 
-			 criar( "res//E" + getEspaco(t) + "//" + "S" + getSubEspaco(t) +
-			 "//", t);
+			 criar( "res//E" + getEspaco(t) + "//" + "S" + getSubEspaco(t) + "//", t);
 
 		}
 
@@ -68,8 +63,8 @@ public class Astral {
 		File AFile = new File(Arquivo);
 
 
-			Harrem HarremSalvar = HarrempluzC.Criar_Harrempluz(eTronarko);
-			Salvar(HarremSalvar, Arquivo);
+		//	Harrem HarremSalvar = HarrempluzC.Criar_Harrempluz(eTronarko);
+		//	Salvar(HarremSalvar, Arquivo);
 
 	
 
@@ -85,26 +80,26 @@ public class Astral {
 		PHarrem.Identifique("Tronarko", eHarrem.getTronarko());
 		PHarrem.Identifique("Criado", getData());
 
-		for (HarremMegarko HarremMegarkoC : eHarrem.getHarremMegarkos()) {
+		//for (HarremMegarko HarremMegarkoC : eHarrem.getHarremMegarkos()) {
 
-			Pacote PMega = PHarrem.CriarPacote("Megarko");
+		//	Pacote PMega = PHarrem.CriarPacote("Megarko");
 
-			PMega.Identifique("Megarko", HarremMegarkoC.getMegarko());
+		//	PMega.Identifique("Megarko", HarremMegarkoC.getMegarko());
+//
+		//	for (HarremSigno HarremSignoC : HarremMegarkoC.getHarremSignos()) {
 
-			for (HarremSigno HarremSignoC : HarremMegarkoC.getHarremSignos()) {
+		//		Pacote PSigno = PMega.UnicoPacote(HarremSignoC.getSigno());
+//
+		//		for (HarremItem HarremItemC : HarremSignoC.getHarremItems()) {
 
-				Pacote PSigno = PMega.UnicoPacote(HarremSignoC.getSigno());
+			//		PSigno.Identifique(HarremItemC.getNome(), HarremItemC.getValor());
+			//	}
 
-				for (HarremItem HarremItemC : HarremSignoC.getHarremItems()) {
+			//}
 
-					PSigno.Identifique(HarremItemC.getNome(), HarremItemC.getValor());
-				}
+		//}
 
-			}
-
-		}
-
-		Empacotar.Salvar(eArquivo);
+	//	Empacotar.Salvar(eArquivo);
 
 	}
 	
@@ -123,6 +118,65 @@ public class Astral {
         return dia + "/" + mes + "/" + ano + " " + hora + ":" + minutos + ":" + segundos;
 
     }
-	
-	
+
+
+	public static String getGrupo(int t) {
+
+		int g = 0;
+
+		while (t > 999) {
+			t -= 1000;
+			g += 1;
+		}
+
+		return "GT" + g;
+	}
+
+	public static String getSubGrupo(int t) {
+		String ret = "";
+
+		int g = 0;
+		int e = 0;
+
+		while (t > 999) {
+			t -= 1000;
+			g += 1;
+		}
+
+		while (t > 100) {
+			t -= 100;
+			e += 1;
+		}
+
+		return gerarTT(e);
+	}
+
+	public static String getNome(int t) {
+		return "Tronarko_" + gerarTronarko(t) + ".harrempluz";
+	}
+
+	public static String gerarTT(int t) {
+		String e = String.valueOf(t);
+		if (t < 10) {
+			e = "0" + e;
+		}
+		return "TT" + e;
+	}
+
+	public static String gerarTronarko(int t) {
+		String e = String.valueOf(t);
+
+		if (t < 10) {
+			e = "000" + e;
+		} else if (t >= 10 && t < 100) {
+			e = "00" + e;
+		} else if (t >= 100 && t < 1000) {
+			e = "0" + e;
+		}
+
+		return e;
+	}
+
+
+
 }

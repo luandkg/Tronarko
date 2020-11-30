@@ -26,7 +26,7 @@ public class Local {
 	}
 
 	public static InputStream Carregar(String eLocal) {
-		System.out.println("Carregar : " + eLocal);
+		//System.out.println("Carregar : " + eLocal);
 
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		InputStream input = classLoader.getResourceAsStream(eLocal);

@@ -1,13 +1,8 @@
 package Astral;
 
-import Tronarko.Harrempluz.Harrempluz.Harrem;
-import Tronarko.Harrempluz.Harrempluz.HarremMegarko;
-import Tronarko.Harrempluz.Harrempluz.HarremSigno;
+import Tronarko.Harrempluz.Harrem;
+import Tronarko.Harrempluz.Harrempluz;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Calendar;
 
 import AssetContainer.ArquivoTexto;
@@ -18,67 +13,66 @@ import Empacotador.Pacote;
 
 public class A7 {
 
-	private AssetContainer mAssetContainer ;
+    private AssetContainer mAssetContainer;
 
-	public A7(String mArquivoHarrempluz) {
-		
-		mAssetContainer = new AssetContainer();
-		mAssetContainer.abrir(mArquivoHarrempluz);
-		
-		//mAssetContainer.listarTabelaDeArquivos();
-		
-	}
+    public A7(String mArquivoHarrempluz) {
 
-	public  Harrem getHarrem(int eTronarko) {
+        mAssetContainer = new AssetContainer();
+        mAssetContainer.abrir(mArquivoHarrempluz);
 
-		int mEspaco = Astral.getEspaco(eTronarko);
-		int mSubEspaco = Astral.getSubEspaco(eTronarko);
-		
-		String Espaco=	"E" + mEspaco ;
-		String SubEspaco =  "S" + mSubEspaco;	
-		String Arquivo =  "Harrempluz_" + eTronarko + ".tronarko";
+        //mAssetContainer.listarTabelaDeArquivos();
 
-		System.out.println("Carregando Harrempluz :: " + eTronarko + " -->> " + mEspaco + " :: " + mSubEspaco + " :: " + Arquivo);
+    }
 
-		
-		ArquivoTexto at = new ArquivoTexto( mAssetContainer.getPasta(Espaco).getPasta(SubEspaco).getArquivo(Arquivo));
-		
-		String eConteudo =at.getConteudo();
-		
-		Empacotador Empacotar = new Empacotador();
-
-		Empacotar.Parser(eConteudo);
-		
-		Pacote PHarrem = Empacotar.UnicoPacote("Harrempluz");
+    public Harrempluz getHarrem(int eTronarko) {
 
 
-		int Tronarko = Integer.parseInt(PHarrem.Identifique("Tronarko").getValor());
+        String mEspaco = Astral.getGrupo(eTronarko);
+        String mSubEspaco = Astral.getSubGrupo(eTronarko);
+        String Arquivo = Astral.getNome(eTronarko);
 
-		Harrem eHarrem = new Harrem(Tronarko);
+        System.out.println("Carregando Harrempluz :: " + eTronarko + " -->> " + mEspaco + " :: " + mSubEspaco + " :: " + Arquivo);
 
-		for (Pacote PacoteMegarko : PHarrem.getPacotes()) {
 
-			int Megarko = Integer.parseInt(PacoteMegarko.Identifique("Megarko").getValor());
+        ArquivoTexto at = new ArquivoTexto(mAssetContainer.getPasta("Harrempluz").getPasta(mEspaco).getPasta(mSubEspaco).getArquivo(Arquivo));
 
-			HarremMegarko HarremMegarkoC = eHarrem.HarremMegarko(Megarko);
+        String eConteudo = at.getConteudo();
 
-			for (Pacote PacoteSigno : PacoteMegarko.getPacotes()) {
+       // System.out.println(eConteudo);
 
-				String SignoNome = PacoteSigno.getNome();
+        Empacotador Empacotar = new Empacotador();
 
-				HarremSigno HarremSignoC = HarremMegarkoC.Signo(SignoNome);
+        Empacotar.Parser(eConteudo);
 
-				for (Identificador IDC : PacoteSigno.getIdentificadores()) {
+        Pacote PHarrem = Empacotar.UnicoPacote("Harrempluz");
 
-					HarremSignoC.HarremItem(IDC.getNome(), IDC.getValor());
-				}
 
-			}
+        Harrempluz eHarrempluz = new Harrempluz();
 
-		}
-		return eHarrem;
-	}
-	
+        for (Pacote PacoteMegarko : PHarrem.getPacotes()) {
+
+            int eHiperarko = Integer.parseInt(PacoteMegarko.Identifique("Hiperarko").getValor());
+            int eMegarko = Integer.parseInt(PacoteMegarko.Identifique("Megarko").getValor());
+            int eSigno = Integer.parseInt(PacoteMegarko.Identifique("Signo").getValor());
+
+            Harrem eHarrem = new Harrem(eTronarko, eHiperarko, eMegarko, eSigno);
+
+            for (Identificador IDC : PacoteMegarko.getIdentificadores()) {
+
+                if (IDC.getNome().contentEquals("Hiperarko")) {
+                } else if (IDC.getNome().contentEquals("Megarko")) {
+                } else if (IDC.getNome().contentEquals("Signo")) {
+                }else{
+                    eHarrem.criarItem(IDC.getNome(),IDC.getValor());
+                }
+            }
+
+            eHarrempluz.adicionar(eHarrem);
+
+        }
+        return eHarrempluz;
+    }
+
 
     public static String getData() {
 

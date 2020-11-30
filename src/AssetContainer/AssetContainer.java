@@ -28,6 +28,7 @@ public class AssetContainer {
 	public String getArquivo() {
 		return mArquivo;
 	}
+
 	public boolean isAberto() {
 		return mAberto;
 	}
@@ -157,18 +158,12 @@ public class AssetContainer {
 	
 
 	public ArrayList<Arquivo> getArquivos() {
-
-	
-
 		return mArquivos;
 
 	}
 
 	public ArrayList<Pasta> getPastas() {
-
-	
 		return mPastas;
-
 	}
 
 	

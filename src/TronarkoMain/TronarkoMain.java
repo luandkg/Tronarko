@@ -6,19 +6,34 @@ import OmegaEngine.Utils.Local;
 
 public class TronarkoMain {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		Windows mWindows = new Windows("Tronarko V2", 1500, 1020);
+        Windows mWindows = null;
+
+        int App = 0;
+
+        if (App == 0) {
+
+            mWindows = new Windows("Tronarko", 1500, 1020);
+            mWindows.CriarCenarioAplicavel(new TronarkoCena(mWindows));
+
+        } else if (App == 1) {
+
+            mWindows = new Windows("Harrempluz", 1500, 1020);
+            mWindows.CriarCenarioAplicavel(new HarrempluzCena(mWindows));
+
+        } else {
+
+            mWindows = new Windows("Alarme", 900, 600);
+            mWindows.CriarCenarioAplicavel(new Alarme(mWindows));
+
+        }
 
 
-		mWindows.setIconImage(Imaginador.CarregarStream(Local.Carregar("editor.png")));
+        mWindows.setIconImage(Imaginador.CarregarStream(Local.Carregar("editor.png")));
 
-		mWindows.CriarCenarioAplicavel(new TronarkoCena(mWindows));
-		
-		//mWindows.CriarCenarioAplicavel(new HarrempluzCena(mWindows));
+        Thread mThread = new Thread(mWindows);
+        mThread.start();
 
-		Thread mThread = new Thread(mWindows);
-		mThread.start();
-
-	}
+    }
 }

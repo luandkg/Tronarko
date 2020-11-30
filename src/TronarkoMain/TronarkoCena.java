@@ -25,255 +25,306 @@ import Tronarko.Satelites.MapaCelestial;
 public class TronarkoCena extends Cena {
 
 
+    private Windows mWindows;
 
-	private Windows mWindows;
+    private Escritor TextoGrande;
+    private Escritor TextoGrande_Hoje;
 
-	private Escritor TextoGrande;
-	private Escritor TextoGrande_Hoje;
+    private Escritor TextoPequeno;
+    private Escritor TextoPequeno_Sel;
 
-	private Escritor TextoPequeno;
-	private Escritor TextoPequeno_Sel;
+    private Escritor TextoPequeno_Hoje;
+    private Escritor TextoPequeno_Hoje2;
 
-	private Escritor TextoPequeno_Hoje;
-	private Escritor TextoPequeno_Hoje2;
+    private Tronarko TronarkoC;
+    private Eventum EventumC;
 
-	private Tronarko TronarkoC;
-	private Eventum EventumC;
+    private BotaoCor BTN_MENOS;
+    private BotaoCor BTN_MAIS;
 
-	BotaoCor BTN_ESQUERDA;
-	Clicavel mClicavel;
-	int eixo_x = 0;
+    private Clicavel mClicavel;
+    private int eixo_x = 0;
 
-	public TronarkoCena(Windows eWindows) {
-		mWindows = eWindows;
+    private Tozte mAtualmente;
+    private Tozte mHoje;
+    private Hazde mAgora;
 
-		TextoGrande = new Escritor(30, Color.BLACK);
-		TextoGrande_Hoje = new Escritor(30, Color.RED);
+    private int mQuantos;
 
-		TextoPequeno = new Escritor(15, Color.BLACK);
-		TextoPequeno_Sel = new Escritor(15, Color.RED);
+    public TronarkoCena(Windows eWindows) {
+        mWindows = eWindows;
 
-		TextoPequeno_Hoje = new Escritor(15, Color.RED);
-		TextoPequeno_Hoje2 = new Escritor(15, Color.WHITE);
+        TextoGrande = new Escritor(30, Color.BLACK);
+        TextoGrande_Hoje = new Escritor(30, Color.RED);
 
-		TronarkoC = new Tronarko();
-		EventumC = new Eventum();
+        TextoPequeno = new Escritor(15, Color.BLACK);
+        TextoPequeno_Sel = new Escritor(15, Color.RED);
 
-		mClicavel = new Clicavel();
+        TextoPequeno_Hoje = new Escritor(15, Color.RED);
+        TextoPequeno_Hoje2 = new Escritor(15, Color.WHITE);
 
-		BTN_ESQUERDA = new BotaoCor(600, 50, 100, 100, new Color(26, 188, 156));
-	}
+        TronarkoC = new Tronarko();
+        EventumC = new Eventum();
 
-	@Override
-	public void iniciar() {
-		mWindows.setTitle("Tronarko");
-	}
+        mClicavel = new Clicavel();
 
-	@Override
-	public void update(double dt) {
+        BTN_MENOS = new BotaoCor(1100, 850, 50, 100, new Color(50, 90, 156));
+        BTN_MAIS = new BotaoCor(1155, 850, 50, 100, new Color(26, 188, 156));
 
-		mClicavel.update(dt, mWindows.getMouse().Pressed());
+        mAtualmente = null;
+        mHoje = null;
+        mQuantos = 0;
+    }
 
-		//System.out.println("Clicavel : " + mClicavel.getClicado());
-		
-		if (mClicavel.getClicado()) {
+    @Override
+    public void iniciar() {
+        mWindows.setTitle("Tronarko");
+    }
 
-			int px = (int) mWindows.getMouse().x;
-			int py = (int) mWindows.getMouse().y;
+    @Override
+    public void update(double dt) {
 
-			if (BTN_ESQUERDA.getClicado(px, py)) {
-				BTN_ESQUERDA.setX(BTN_ESQUERDA.getX() + 10);
-			}
-		}
+        mHoje = TronarkoC.getTozte();
+        mAgora = TronarkoC.getHazde();
 
-	}
 
-	@Override
-	public void draw(Graphics g) {
+        mClicavel.update(dt, mWindows.getMouse().Pressed());
 
-		mWindows.Limpar(g);
-		//BTN_ESQUERDA.draw(g);
+        //System.out.println("Clicavel : " + mClicavel.getClicado());
 
-		Tozte Hoje = TronarkoC.getTozte();
-		
-		//Hoje = Hoje.adicionar_Tronarko(5);
-		
-		Hazde Agora = TronarkoC.getHazde();
+        if (mClicavel.getClicado()) {
 
-		ArrayList<TozteCor> mInfos = EventumC.getToztesComCor(Hoje.getTronarko());
+            int px = (int) mWindows.getMouse().x;
+            int py = (int) mWindows.getMouse().y;
 
-		int CAIXA_X = 40;
-		int CAIXA_Y = 80;
+            if (BTN_MAIS.getClicado(px, py)) {
+                mQuantos += 1;
+            }
 
-		int CAIXA_ALTURA = 190;
+            if (BTN_MENOS.getClicado(px, py)) {
+                mQuantos -= 1;
+            }
+        }
 
-		draw_hiperarko(g, Hoje, mInfos, 1, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_hiperarko(g, Hoje, mInfos, 3, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_hiperarko(g, Hoje, mInfos, 5, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_hiperarko(g, Hoje, mInfos, 7, 3, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_hiperarko(g, Hoje, mInfos, 9, 4, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
 
-		CAIXA_X = 500;
+        mHoje = mHoje.adicionar_Superarko(mQuantos);
 
-		draw_hiperarko(g, Hoje, mInfos, 2, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_hiperarko(g, Hoje, mInfos, 4, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_hiperarko(g, Hoje, mInfos, 6, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_hiperarko(g, Hoje, mInfos, 8, 3, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_hiperarko(g, Hoje, mInfos, 10, 4, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
 
-		int LX = 950;
-		int LY = 200;
+        if (mAtualmente == null) {
+            mAtualmente = mHoje;
+            olharAoRedor();
+        } else {
+            if (mHoje.Diferente(mAtualmente)) {
+                mAtualmente = mHoje;
+                olharAoRedor();
+            }
+        }
 
-		TextoPequeno.EscreveNegrito(g, " -->> Hoje : " + Hoje.toString(), LX, LY - 100);
-		TextoPequeno.EscreveNegrito(g, " -->> Agora : " + Agora.toString(), LX, LY - 50);
 
-		
-				
-		long total = TronarkoC.getLong (Hoje,Agora);
-		
-		
-		//TextoPequeno.EscreveNegrito(g, " -->> Total : " +total, LX+300, LY -100);
-		//
-	//	TextoPequeno.EscreveNegrito(g, " -->> " + TronarkoC.setLong(total), LX+300, LY -50);
+    }
 
+    public void olharAoRedor() {
 
-		MapaCelestial.Allux AlluxC = new MapaCelestial.Allux();
-		MapaCelestial.Ettos EttosC = new MapaCelestial.Ettos();
-		MapaCelestial.Unnos UnnosC = new MapaCelestial.Unnos();
+        System.out.println();
+        System.out.println("Hoje : " + mAtualmente.getTexto());
 
-		TextoPequeno.EscreveNegrito(g, " -->> Allux : " +AlluxC.getFase(Hoje).toString(), LX+300, LY -100);
-		TextoPequeno.EscreveNegrito(g, " -->> Ettos : " +EttosC.getFase(Hoje).toString(), LX+300, LY -50);
-		TextoPequeno.EscreveNegrito(g, " -->> Unnos : " +UnnosC.getFase(Hoje).toString(), LX+300, LY );
+        Tozte mAntes = mAtualmente.adicionar_Superarko(-50);
+        Tozte mDepois = mAtualmente.adicionar_Superarko(+50);
 
-		
+        ArrayList<TozteCor> mInfos = EventumC.getToztesComCorEmIntervalo(mAntes, mDepois);
 
+        for (TozteCor eTozteCor : mInfos) {
+            System.out.println(" -->> " + eTozteCor.getNome() + " :: " + eTozteCor.getTozte().getTexto());
+        }
 
-		draw_hiperarko(g, Hoje, mInfos, Hoje.getHiperarko(), 0, LX + 50, 280, CAIXA_ALTURA);
+    }
 
-		LY = 500;
-		LX=950;
-		
-		for (TozteCor InfoC : EventumC.getLegenda(mInfos)) {
+    @Override
+    public void draw(Graphics g) {
 
-			g.setColor(InfoC.getCor());
-			g.fillRect(LX, LY - 15, 20, 20);
+        mWindows.Limpar(g);
+        BTN_MENOS.draw(g);
+        BTN_MAIS.draw(g);
 
-			if (InfoC.getNome().contains("Reciclum")) {
-				TextoPequeno.EscreveNegrito(g, InfoC.getNome(), LX + 50, LY);
 
-			} else {
-				TextoPequeno.EscreveNegrito(g, InfoC.getNome() + " -->> " + InfoC.getComplemento(), LX + 50, LY);
+        //Hoje = Hoje.adicionar_Tronarko(5);
 
-			}
 
-			LY += 50;
+        ArrayList<TozteCor> mInfos = EventumC.getToztesComCor(mHoje.getTronarko());
 
-		}
+        int CAIXA_X = 40;
+        int CAIXA_Y = 80;
 
-	}
+        int CAIXA_ALTURA = 190;
 
-	public void draw_hiperarko(Graphics g, Tozte Hoje, ArrayList<TozteCor> mInfos, int mHiperarko, int Faixador,
-			int CAIXA_X, int CAIXA_Y, int CAIXA_ALTURA) {
+        draw_hiperarko(g, mHoje, mInfos, 1, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_hiperarko(g, mHoje, mInfos, 3, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_hiperarko(g, mHoje, mInfos, 5, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_hiperarko(g, mHoje, mInfos, 7, 3, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_hiperarko(g, mHoje, mInfos, 9, 4, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
 
-		int eTronarko = Hoje.getTronarko();
+        CAIXA_X = 500;
 
-		int i = mHiperarko - 1;
+        draw_hiperarko(g, mHoje, mInfos, 2, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_hiperarko(g, mHoje, mInfos, 4, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_hiperarko(g, mHoje, mInfos, 6, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_hiperarko(g, mHoje, mInfos, 8, 3, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_hiperarko(g, mHoje, mInfos, 10, 4, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
 
-		String eTitulo = String.valueOf(i + 1) + " - " + Tronarko.Hiperarkos.get(i + 1).toString();
+        int LX = 950;
+        int LY = 200;
 
-		if (Hoje.getHiperarko() == (i + 1)) {
+        TextoPequeno.EscreveNegrito(g, " -->> Hoje : " + mHoje.toString(), LX, LY - 100);
+        TextoPequeno.EscreveNegrito(g, " -->> Agora : " + mAgora.toString(), LX, LY - 50);
 
-			TextoGrande_Hoje.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
 
-		} else {
+        long total = TronarkoC.getLong(mHoje, mAgora);
 
-			TextoGrande.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
 
-		}
+        //TextoPequeno.EscreveNegrito(g, " -->> Total : " +total, LX+300, LY -100);
+        //
+        //	TextoPequeno.EscreveNegrito(g, " -->> " + TronarkoC.setLong(total), LX+300, LY -50);
 
-		for (int s = 0; s < 10; s++) {
 
-			String eMega = Tronarko.Superarkos.get(s + 1).getCapital();
+        MapaCelestial.Allux AlluxC = new MapaCelestial.Allux();
+        MapaCelestial.Ettos EttosC = new MapaCelestial.Ettos();
+        MapaCelestial.Unnos UnnosC = new MapaCelestial.Unnos();
 
-			if ((Hoje.getTronarko() == eTronarko) && (Hoje.getHiperarko() == mHiperarko)) {
+        TextoPequeno.EscreveNegrito(g, " -->> Allux : " + AlluxC.getFase(mHoje).toString(), LX + 300, LY - 100);
+        TextoPequeno.EscreveNegrito(g, " -->> Ettos : " + EttosC.getFase(mHoje).toString(), LX + 300, LY - 50);
+        TextoPequeno.EscreveNegrito(g, " -->> Unnos : " + UnnosC.getFase(mHoje).toString(), LX + 300, LY);
 
-				if (eMega.contentEquals(Hoje.Superarko_capital())) {
-					TextoPequeno_Sel.EscreveNegrito(g, eMega, (CAIXA_X - 10) + (s * 40),
-							((CAIXA_ALTURA * Faixador) + 30) + CAIXA_Y);
 
-				} else {
-					TextoPequeno.EscreveNegrito(g, eMega, (CAIXA_X - 10) + (s * 40),
-							((CAIXA_ALTURA * Faixador) + 30) + CAIXA_Y);
+        draw_hiperarko(g, mHoje, mInfos, mHoje.getHiperarko(), 0, LX + 50, 280, CAIXA_ALTURA);
 
-				}
+        LY = 500;
+        LX = 950;
 
-			} else {
+        for (TozteCor InfoC : EventumC.getLegenda(mInfos)) {
 
-				TextoPequeno.EscreveNegrito(g, eMega, (CAIXA_X - 10) + (s * 40),
-						((CAIXA_ALTURA * Faixador) + 30) + CAIXA_Y);
+            g.setColor(InfoC.getCor());
+            g.fillRect(LX, LY - 15, 20, 20);
 
-			}
+            if (InfoC.getNome().contains("Reciclum")) {
+                TextoPequeno.EscreveNegrito(g, InfoC.getNome(), LX + 50, LY);
+            } else {
+                TextoPequeno.EscreveNegrito(g, InfoC.getNome() + " -->> " + InfoC.getComplemento(), LX + 50, LY);
+            }
 
-		}
+            LY += 50;
 
-		int mSuperarko = 1;
+        }
 
-		for (int m = 0; m < 5; m++) {
+    }
 
-			for (int s = 0; s < 10; s++) {
+    public void draw_hiperarko(Graphics g, Tozte Hoje, ArrayList<TozteCor> mInfos, int mHiperarko, int Faixador,
+                               int CAIXA_X, int CAIXA_Y, int CAIXA_ALTURA) {
 
-				int QX = (CAIXA_X - 10) + (s * 40) + 5;
-				int QY = (((CAIXA_ALTURA * Faixador) + 30) + ((m + 1) * 20)) + CAIXA_Y + 10;
+        int eTronarko = Hoje.getTronarko();
 
-				Tozte mTozte = new Tozte(mSuperarko, mHiperarko, eTronarko);
+        int i = mHiperarko - 1;
 
-				Color mCor = Color.WHITE;
+        String eTitulo = String.valueOf(i + 1) + " - " + Tronarko.Hiperarkos.get(i + 1).toString();
 
-				for (TozteCor InfoC : mInfos) {
+        if (Hoje.getHiperarko() == (i + 1)) {
 
-					if (mTozte.Igual(InfoC.getTozte())) {
+            TextoGrande_Hoje.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
 
-						mCor = InfoC.getCor();
-						break;
-					}
+        } else {
 
-				}
+            TextoGrande.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
 
-				g.setColor(mCor);
-				g.fillRect(QX -3, QY - 15, 25, 20);
+        }
 
-				String mSuperNum = numeral(mSuperarko);
+        for (int s = 0; s < 10; s++) {
 
-				if ((Hoje.getTronarko() == eTronarko) && (Hoje.getHiperarko() == mHiperarko)
-						&& (Hoje.getSuperarko() == mSuperarko)) {
+            String eMega = Tronarko.Superarkos.get(s + 1).getCapital();
 
-					if ((mCor.getRed() == 255) && (mCor.getGreen() == 0) && (mCor.getBlue() == 0)) {
-						TextoPequeno_Hoje2.EscreveNegrito(g, mSuperNum, QX - 2, QY);
-					} else {
-						TextoPequeno_Hoje.EscreveNegrito(g, mSuperNum, QX - 2, QY);
-					}
+            if ((Hoje.getTronarko() == eTronarko) && (Hoje.getHiperarko() == mHiperarko)) {
 
-				} else {
+                if (eMega.contentEquals(Hoje.Superarko_capital())) {
+                    TextoPequeno_Sel.EscreveNegrito(g, eMega, (CAIXA_X - 10) + (s * 40),
+                            ((CAIXA_ALTURA * Faixador) + 30) + CAIXA_Y);
 
-					TextoPequeno.Escreve(g, mSuperNum, QX, QY);
+                } else {
+                    TextoPequeno.EscreveNegrito(g, eMega, (CAIXA_X - 10) + (s * 40),
+                            ((CAIXA_ALTURA * Faixador) + 30) + CAIXA_Y);
 
-				}
+                }
 
-				mSuperarko += 1;
+            } else {
 
-			}
+                TextoPequeno.EscreveNegrito(g, eMega, (CAIXA_X - 10) + (s * 40),
+                        ((CAIXA_ALTURA * Faixador) + 30) + CAIXA_Y);
 
-		}
+            }
 
-	}
+        }
 
-	public String numeral(int i) {
+        int mSuperarko = 1;
 
-		String r = String.valueOf(i);
-		if (r.length() == 1) {
-			r = "0" + r;
-		}
-		return r;
-	}
+        for (int m = 0; m < 5; m++) {
+
+            for (int s = 0; s < 10; s++) {
+
+                int QX = (CAIXA_X - 10) + (s * 40) + 5;
+                int QY = (((CAIXA_ALTURA * Faixador) + 30) + ((m + 1) * 20)) + CAIXA_Y + 10;
+
+                Tozte mTozte = new Tozte(mSuperarko, mHiperarko, eTronarko);
+
+                Color mCor = Color.WHITE;
+
+                boolean comFundo = false;
+
+                for (TozteCor InfoC : mInfos) {
+
+                    if (mTozte.Igual(InfoC.getTozte())) {
+                        mCor = InfoC.getCor();
+                        comFundo = true;
+                        break;
+                    }
+
+                }
+
+                g.setColor(mCor);
+                g.fillRect(QX - 3, QY - 15, 25, 20);
+
+                String mSuperNum = numeral(mSuperarko);
+
+                if ((Hoje.getTronarko() == eTronarko) && (Hoje.getHiperarko() == mHiperarko)
+                        && (Hoje.getSuperarko() == mSuperarko)) {
+
+                    if (comFundo){
+                        TextoPequeno_Hoje2.EscreveNegrito(g, mSuperNum, QX - 2, QY);
+                    }else{
+                        TextoPequeno_Hoje.EscreveNegrito(g, mSuperNum, QX - 2, QY);
+                    }
+
+                    if ((mCor.getRed() == 255) && (mCor.getGreen() == 0) && (mCor.getBlue() == 0)) {
+                    } else {
+                    }
+
+                } else {
+
+                    TextoPequeno.Escreve(g, mSuperNum, QX, QY);
+
+                }
+
+                mSuperarko += 1;
+
+            }
+
+        }
+
+    }
+
+    public String numeral(int i) {
+
+        String r = String.valueOf(i);
+        if (r.length() == 1) {
+            r = "0" + r;
+        }
+        return r;
+    }
 
 }

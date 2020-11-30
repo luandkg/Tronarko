@@ -2,150 +2,198 @@ package TronarkoMain;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
-import AssetContainer.AssetContainer;
 import Astral.A7;
-import Astral.Astral;
-import OmegaEngine.Windows;
-import OmegaEngine.Cenarios.Cena;
 import OmegaEngine.UI.BotaoCor;
 import OmegaEngine.UI.Clicavel;
+import OmegaEngine.Windows;
+import OmegaEngine.Cenarios.Cena;
 import OmegaEngine.Utils.Escritor;
-import OmegaEngine.Utils.Imaginador;
-import OmegaEngine.Utils.Local;
-import OmegaEngine.Utils.Recurso;
-import Tronarko.TozteCor;
-import Tronarko.Tronarko;
-import Tronarko.Tronarko.Hazde;
-import Tronarko.Tronarko.Tozte;
-import Tronarko.Eventos.Eventum;
+import Tronarko.Harrempluz.Harrem;
+import Tronarko.Harrempluz.HarremItem;
 import Tronarko.Harrempluz.Harrempluz;
-import Tronarko.Harrempluz.Harrempluz.Harrem;
-import Tronarko.Harrempluz.Harrempluz.HarremItem;
-import Tronarko.Harrempluz.Harrempluz.HarremMegarko;
-import Tronarko.Satelites.MapaCelestial;
+import Tronarko.Tronarko;
+import Tronarko.Tronarko.Tozte;
 
 public class HarrempluzCena extends Cena {
 
-	private Windows mWindows;
+    private Windows mWindows;
 
-	private Escritor TextoGrande;
-	private Escritor TextoPequeno;
-
-
-	private Tronarko TronarkoC;
-
-	private int mTronarko;
-	private int mMega;
-	private Tozte Hoje;
-
-	private Harrem mSignos;
-	private HarremMegarko mSignosMegarko;
-	private A7 mA7 ;
-	
-	public HarrempluzCena(Windows eWindows) {
-		mWindows = eWindows;
-
-		TextoGrande = new Escritor(30, Color.BLACK);
-		TextoPequeno = new Escritor(15, Color.BLACK);
+    private Escritor TextoGrande;
+    private Escritor TextoPequeno;
 
 
-		TronarkoC = new Tronarko();
+    private Tronarko TronarkoC;
 
-		mTronarko = -1;
-		mMega = -1;
-		
-		
-		String mArquivoHarrempluz = "harrempluz.dkgax";
-		mA7 = new A7(mArquivoHarrempluz);
-	
-		
-	}
+    private int mTronarko;
+    private int mMega;
+    private Tozte Hoje;
 
-	@Override
-	public void iniciar() {
-		mWindows.setTitle("Harrempluz");
-	}
+    private Harrempluz mHarrempluz;
+    private ArrayList<Harrem> mSignosMegarko;
+    private A7 mA7;
 
-	@Override
-	public void update(double dt) {
+    private BotaoCor BTN_ESQUERDA;
+    private Clicavel mClicavel;
+    private int mQuantos;
 
-		Hoje = TronarkoC.getTozte();
-		
-	//	Hoje = Hoje.adicionar_Tronarko(6);
+    public HarrempluzCena(Windows eWindows) {
+        mWindows = eWindows;
 
-		
-		if (mTronarko != Hoje.getTronarko()) {
-			mTronarko = Hoje.getTronarko();
-			
-			mSignos = mA7.getHarrem( mTronarko);
-		}
+        TextoGrande = new Escritor(30, Color.BLACK);
+        TextoPequeno = new Escritor(15, Color.BLACK);
 
-		if (mMega != Hoje.getMegarkoDoTronarko()) {
-			mMega = Hoje.getMegarkoDoTronarko();
-			mSignosMegarko = mSignos.HarremMegarko(Hoje.getMegarkoDoTronarko());
-		}
 
-	}
+        TronarkoC = new Tronarko();
 
-	@Override
-	public void draw(Graphics g) {
+        mTronarko = -1;
+        mMega = -1;
+        mQuantos = 0;
 
-		mWindows.Limpar(g);
+        mA7 = new A7("harrempluz.dkgax");
 
-		int CAIXA_X = 40;
-		int CAIXA_Y = 100;
+        mHarrempluz = null;
+        mSignosMegarko = new ArrayList<Harrem>();
 
-		int CAIXA_ALTURA = 300;
+        mClicavel = new Clicavel();
 
-		draw_signo(g, 1, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_signo(g, 2, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        BTN_ESQUERDA = new BotaoCor(1200, 800, 100, 100, new Color(26, 80, 156));
 
-		CAIXA_X = 400;
+    }
 
-		draw_signo(g, 3, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_signo(g, 4, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_signo(g, 5, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+    @Override
+    public void iniciar() {
+        mWindows.setTitle("Harrempluz");
+    }
 
-		CAIXA_X = 700;
-		draw_signo(g, 6, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_signo(g, 7, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_signo(g, 8, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+    @Override
+    public void update(double dt) {
 
-		CAIXA_X = 1000;
-		draw_signo(g, 9, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
-		draw_signo(g, 10, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        Hoje = TronarkoC.getTozte();
 
-		TextoGrande.EscreveNegrito(g, "Tronarko : " + Hoje.getTronarko(), 50, CAIXA_Y);
-		TextoGrande.EscreveNegrito(g, "    Mega : " + Hoje.getMegarkoDoTronarko(), 50, CAIXA_Y + 50);
 
-	}
+        mClicavel.update(dt, mWindows.getMouse().Pressed());
 
-	public void draw_signo(Graphics g, int mHiperarko, int Faixador, int CAIXA_X, int CAIXA_Y, int CAIXA_ALTURA) {
+        if (mClicavel.getClicado()) {
 
-		int i = mHiperarko - 1;
-		String eSigno = Tronarko.Signos.get(i + 1).toString();
-		String eTitulo = String.valueOf(i + 1) + " - " + eSigno;
+            int px = (int) mWindows.getMouse().x;
+            int py = (int) mWindows.getMouse().y;
 
-		TextoGrande.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
+            if (BTN_ESQUERDA.getClicado(px, py)) {
+                mQuantos += 1;
+            }
+        }
 
-		int s = 0;
+        if (mQuantos > 0) {
+            Hoje = Hoje.adicionar_Superarko(mQuantos);
+        }
 
-		for (HarremItem item : mSignosMegarko.Signo(eSigno).getHarremItems()) {
 
-			String eMega = item.getNome() + " = " + item.getValor();
+        if (mTronarko != Hoje.getTronarko()) {
+            mTronarko = Hoje.getTronarko();
 
-			int parteX = (CAIXA_X - 10);
-			int parteY = (((CAIXA_ALTURA * Faixador) + 30) + CAIXA_Y) + (s * 20);
+            mHarrempluz = mA7.getHarrem(mTronarko);
+        }
 
-			TextoPequeno.EscreveNegrito(g, eMega, parteX, parteY);
-			s += 1;
-		}
+        if (mMega != Hoje.getMegarkoDoTronarko()) {
+            mMega = Hoje.getMegarkoDoTronarko();
 
-	}
+            mSignosMegarko.clear();
+
+            System.out.println("Tozte = " + Hoje.getTexto());
+
+            for (Harrem eHarrem : mHarrempluz.getHarrems()) {
+
+                if (eHarrem.getMegarkoDoTronarko() == mMega) {
+
+                    mSignosMegarko.add(eHarrem);
+
+                    //   System.out.println("-->> S - Harrem { Tronarko : " + eHarrem.getTronarko() + " Hiperarko = " + eHarrem.getHiperarko() + " Megarko = " + eHarrem.getMegarko() + " Signo = " + eHarrem.getSigno() + " } ");
+
+                } else {
+
+                    //   System.out.println("N - Harrem { Tronarko : " + eHarrem.getTronarko() + " Hiperarko = " + eHarrem.getHiperarko() + " Megarko = " + eHarrem.getMegarko() + " Signo = " + eHarrem.getSigno() + " } ");
+
+
+                }
+
+            }
+
+            System.out.println("Carregando megarko = " + mMega);
+            System.out.println("Signos Megarko = " + mSignosMegarko.size());
+
+        }
+
+
+    }
+
+    @Override
+    public void draw(Graphics g) {
+
+        mWindows.Limpar(g);
+
+        BTN_ESQUERDA.draw(g);
+
+        int CAIXA_X = 40;
+        int CAIXA_Y = 100;
+
+        int CAIXA_ALTURA = 300;
+
+        draw_signo(g, 1, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_signo(g, 2, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+
+        CAIXA_X = 400;
+
+        draw_signo(g, 3, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_signo(g, 4, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_signo(g, 5, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+
+        CAIXA_X = 700;
+        draw_signo(g, 6, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_signo(g, 7, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_signo(g, 8, 2, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+
+        CAIXA_X = 1000;
+        draw_signo(g, 9, 0, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+        draw_signo(g, 10, 1, CAIXA_X, CAIXA_Y, CAIXA_ALTURA);
+
+        TextoGrande.EscreveNegrito(g, "Tronarko : " + Hoje.getTronarko(), 50, CAIXA_Y);
+        TextoGrande.EscreveNegrito(g, "    Mega : " + Hoje.getMegarkoDoTronarko(), 50, CAIXA_Y + 50);
+        TextoGrande.EscreveNegrito(g, "Tozte : " + Hoje.getTexto(), 30, CAIXA_Y + 110);
+
+    }
+
+    public void draw_signo(Graphics g, int mHiperarko, int Faixador, int CAIXA_X, int CAIXA_Y, int CAIXA_ALTURA) {
+
+        int i = mHiperarko - 1;
+        String eSigno = Tronarko.Signos.get(i + 1).toString();
+        String eTitulo = String.valueOf(i + 1) + " - " + eSigno;
+
+        TextoGrande.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
+
+        for (Harrem eHarrem : mSignosMegarko) {
+
+            if (eHarrem.getSigno() == i + 1) {
+
+                int s = 0;
+
+                for (HarremItem item : eHarrem.getItens()) {
+
+                    String eMega = item.getNome() + " = " + item.getValor();
+
+                    int parteX = (CAIXA_X - 10);
+                    int parteY = (((CAIXA_ALTURA * Faixador) + 30) + CAIXA_Y) + (s * 20);
+
+                    TextoPequeno.EscreveNegrito(g, eMega, parteX, parteY);
+                    s += 1;
+                }
+
+            }
+
+        }
+
+
+    }
 
 }
