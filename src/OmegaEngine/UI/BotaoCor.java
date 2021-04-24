@@ -84,6 +84,21 @@ public class BotaoCor {
 		
 		return ret;
 	}
-	
-	
+
+	public boolean getClicado(OmegaEngine.Input.Mouse  eMouse) {
+		boolean ret = false;
+
+		int px = (int) eMouse.x;
+		int py = (int) eMouse.y;
+
+		if (px >= this.getX() && px <= this.getX2()) {
+			if (py >= this.getY() && py <= this.getY2()) {
+				ret=true;
+			}
+		}
+
+		return ret;
+	}
+
+
 }

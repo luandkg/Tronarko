@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import Astral.A7;
 import OmegaEngine.UI.BotaoCor;
-import OmegaEngine.UI.Clicavel;
+import OmegaEngine.UI.IteracaoUI;
 import OmegaEngine.Windows;
 import OmegaEngine.Cenarios.Cena;
 import OmegaEngine.Utils.Escritor;
@@ -35,11 +35,10 @@ public class HarrempluzCena extends Cena {
     private A7 mA7;
 
     private BotaoCor BTN_ESQUERDA;
-    private Clicavel mClicavel;
+    private IteracaoUI mIteracaoUI;
     private int mQuantos;
 
-    public HarrempluzCena(Windows eWindows) {
-        mWindows = eWindows;
+    public HarrempluzCena( ) {
 
         TextoGrande = new Escritor(30, Color.BLACK);
         TextoPequeno = new Escritor(15, Color.BLACK);
@@ -56,14 +55,17 @@ public class HarrempluzCena extends Cena {
         mHarrempluz = null;
         mSignosMegarko = new ArrayList<Harrem>();
 
-        mClicavel = new Clicavel();
+        mIteracaoUI = new IteracaoUI();
 
         BTN_ESQUERDA = new BotaoCor(1200, 800, 100, 100, new Color(26, 80, 156));
 
     }
 
     @Override
-    public void iniciar() {
+    public void iniciar(Windows eWindows)
+    {
+        mWindows = eWindows;
+
         mWindows.setTitle("Harrempluz");
     }
 
@@ -73,9 +75,9 @@ public class HarrempluzCena extends Cena {
         Hoje = TronarkoC.getTozte();
 
 
-        mClicavel.update(dt, mWindows.getMouse().Pressed());
+        mIteracaoUI.update(dt, mWindows.getMouse().Pressed());
 
-        if (mClicavel.getClicado()) {
+        if (mIteracaoUI.podeClicar()) {
 
             int px = (int) mWindows.getMouse().x;
             int py = (int) mWindows.getMouse().y;

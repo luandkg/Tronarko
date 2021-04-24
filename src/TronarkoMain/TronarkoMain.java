@@ -15,17 +15,17 @@ public class TronarkoMain {
         if (App == 0) {
 
             mWindows = new Windows("Tronarko", 1500, 1020);
-            mWindows.CriarCenarioAplicavel(new TronarkoCena(mWindows));
+            mWindows.CriarCenarioAplicavel(new TronarkoCena());
 
         } else if (App == 1) {
 
             mWindows = new Windows("Harrempluz", 1500, 1020);
-            mWindows.CriarCenarioAplicavel(new HarrempluzCena(mWindows));
+            mWindows.CriarCenarioAplicavel(new HarrempluzCena());
 
         } else {
 
             mWindows = new Windows("Alarme", 900, 600);
-            mWindows.CriarCenarioAplicavel(new Alarme(mWindows));
+            mWindows.CriarCenarioAplicavel(new Alarme());
 
         }
 

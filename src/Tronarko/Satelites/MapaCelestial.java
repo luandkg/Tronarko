@@ -43,6 +43,8 @@ public class MapaCelestial {
 		return new Unnizz();
 	}
 
+
+
 	public ArrayList<TozteCor> getToztesComCor_Allux(int eTronarko) {
 
 		ArrayList<TozteCor> ToztesComCor = new ArrayList<TozteCor>();

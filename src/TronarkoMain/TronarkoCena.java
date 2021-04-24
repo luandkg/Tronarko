@@ -2,19 +2,13 @@ package TronarkoMain;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import OmegaEngine.Windows;
 import OmegaEngine.Cenarios.Cena;
 import OmegaEngine.UI.BotaoCor;
-import OmegaEngine.UI.Clicavel;
+import OmegaEngine.UI.IteracaoUI;
 import OmegaEngine.Utils.Escritor;
-import OmegaEngine.Utils.Imaginador;
-import OmegaEngine.Utils.Local;
-import OmegaEngine.Utils.Recurso;
 import Tronarko.TozteCor;
 import Tronarko.Tronarko;
 import Tronarko.Tronarko.Hazde;
@@ -42,8 +36,7 @@ public class TronarkoCena extends Cena {
     private BotaoCor BTN_MENOS;
     private BotaoCor BTN_MAIS;
 
-    private Clicavel mClicavel;
-    private int eixo_x = 0;
+    private IteracaoUI mIteracaoUI;
 
     private Tozte mAtualmente;
     private Tozte mHoje;
@@ -51,8 +44,11 @@ public class TronarkoCena extends Cena {
 
     private int mQuantos;
 
-    public TronarkoCena(Windows eWindows) {
+
+    @Override
+    public void iniciar(Windows eWindows) {
         mWindows = eWindows;
+        mWindows.setTitle("Tronarko");
 
         TextoGrande = new Escritor(30, Color.BLACK);
         TextoGrande_Hoje = new Escritor(30, Color.RED);
@@ -66,10 +62,10 @@ public class TronarkoCena extends Cena {
         TronarkoC = new Tronarko();
         EventumC = new Eventum();
 
-        mClicavel = new Clicavel();
+        mIteracaoUI = new IteracaoUI();
 
-        BTN_MENOS = new BotaoCor(1100, 850, 50, 100, new Color(50, 90, 156));
-        BTN_MAIS = new BotaoCor(1155, 850, 50, 100, new Color(26, 188, 156));
+        BTN_MENOS = new BotaoCor(1100, 870, 50, 100, new Color(50, 90, 156));
+        BTN_MAIS = new BotaoCor(1155, 870, 50, 100, new Color(26, 188, 156));
 
         mAtualmente = null;
         mHoje = null;
@@ -77,31 +73,21 @@ public class TronarkoCena extends Cena {
     }
 
     @Override
-    public void iniciar() {
-        mWindows.setTitle("Tronarko");
-    }
-
-    @Override
     public void update(double dt) {
+
 
         mHoje = TronarkoC.getTozte();
         mAgora = TronarkoC.getHazde();
 
+        mIteracaoUI.update(dt, mWindows.getMouse().Pressed());
 
-        mClicavel.update(dt, mWindows.getMouse().Pressed());
+        if (mIteracaoUI.podeClicar()) {
 
-        //System.out.println("Clicavel : " + mClicavel.getClicado());
-
-        if (mClicavel.getClicado()) {
-
-            int px = (int) mWindows.getMouse().x;
-            int py = (int) mWindows.getMouse().y;
-
-            if (BTN_MAIS.getClicado(px, py)) {
+            if (BTN_MAIS.getClicado(mWindows.getMouse())) {
                 mQuantos += 1;
             }
 
-            if (BTN_MENOS.getClicado(px, py)) {
+            if (BTN_MENOS.getClicado(mWindows.getMouse())) {
                 mQuantos -= 1;
             }
         }
@@ -142,12 +128,10 @@ public class TronarkoCena extends Cena {
     @Override
     public void draw(Graphics g) {
 
+
         mWindows.Limpar(g);
         BTN_MENOS.draw(g);
         BTN_MAIS.draw(g);
-
-
-        //Hoje = Hoje.adicionar_Tronarko(5);
 
 
         ArrayList<TozteCor> mInfos = EventumC.getToztesComCor(mHoje.getTronarko());
@@ -178,14 +162,6 @@ public class TronarkoCena extends Cena {
         TextoPequeno.EscreveNegrito(g, " -->> Agora : " + mAgora.toString(), LX, LY - 50);
 
 
-        long total = TronarkoC.getLong(mHoje, mAgora);
-
-
-        //TextoPequeno.EscreveNegrito(g, " -->> Total : " +total, LX+300, LY -100);
-        //
-        //	TextoPequeno.EscreveNegrito(g, " -->> " + TronarkoC.setLong(total), LX+300, LY -50);
-
-
         MapaCelestial.Allux AlluxC = new MapaCelestial.Allux();
         MapaCelestial.Ettos EttosC = new MapaCelestial.Ettos();
         MapaCelestial.Unnos UnnosC = new MapaCelestial.Unnos();
@@ -197,6 +173,20 @@ public class TronarkoCena extends Cena {
 
         draw_hiperarko(g, mHoje, mInfos, mHoje.getHiperarko(), 0, LX + 50, 280, CAIXA_ALTURA);
 
+        int mTamanho = 380;
+
+        double eTaxa = (double) mTamanho / 50.0;
+        int eCompleto = (int) (eTaxa * (double) mHoje.getSuperarko());
+
+        g.setColor(Color.BLACK);
+        g.fillRect(LX + 33, 435, 5, 20);
+        g.fillRect(LX + 40, 435, 5, 20);
+        g.fillRect(LX + 45, 442, mTamanho, 5);
+
+        g.setColor(Color.RED);
+        g.fillRect(LX + 45, 440, eCompleto, 10);
+
+
         LY = 500;
         LX = 950;
 
@@ -205,10 +195,14 @@ public class TronarkoCena extends Cena {
             g.setColor(InfoC.getCor());
             g.fillRect(LX, LY - 15, 20, 20);
 
+            g.setColor(Color.WHITE);
+            g.fillRect(LX + 5, LY - 15 + 5, 10, 10);
+
+
             if (InfoC.getNome().contains("Reciclum")) {
-                TextoPequeno.EscreveNegrito(g, InfoC.getNome(), LX + 50, LY);
+                TextoPequeno.EscreveNegrito(g, InfoC.getNome(), LX + 30, LY);
             } else {
-                TextoPequeno.EscreveNegrito(g, InfoC.getNome() + " -->> " + InfoC.getComplemento(), LX + 50, LY);
+                TextoPequeno.EscreveNegrito(g, InfoC.getNome() + " -->> " + InfoC.getComplemento(), LX + 30, LY);
             }
 
             LY += 50;
@@ -222,18 +216,10 @@ public class TronarkoCena extends Cena {
 
         int eTronarko = Hoje.getTronarko();
 
-        int i = mHiperarko - 1;
-
-        String eTitulo = String.valueOf(i + 1) + " - " + Tronarko.Hiperarkos.get(i + 1).toString();
-
-        if (Hoje.getHiperarko() == (i + 1)) {
-
-            TextoGrande_Hoje.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
-
+        if (Hoje.getHiperarko() == (mHiperarko)) {
+            TextoGrande_Hoje.EscreveNegrito(g, Tronarko.Hiperarkos.getNumerado(mHiperarko), CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
         } else {
-
-            TextoGrande.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
-
+            TextoGrande.EscreveNegrito(g, Tronarko.Hiperarkos.getNumerado(mHiperarko), CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
         }
 
         for (int s = 0; s < 10; s++) {
@@ -265,6 +251,8 @@ public class TronarkoCena extends Cena {
 
         for (int m = 0; m < 5; m++) {
 
+            boolean anteriorComFundo = false;
+
             for (int s = 0; s < 10; s++) {
 
                 int QX = (CAIXA_X - 10) + (s * 40) + 5;
@@ -289,14 +277,29 @@ public class TronarkoCena extends Cena {
                 g.setColor(mCor);
                 g.fillRect(QX - 3, QY - 15, 25, 20);
 
-                String mSuperNum = numeral(mSuperarko);
+
+                if (comFundo & anteriorComFundo && s < 10) {
+
+                    g.setColor(mCor);
+                    g.fillRect(QX - 3 - 18, QY - 7, 20, 5);
+
+                }
+
+                anteriorComFundo = comFundo;
+
+
+                String mSuperNum = String.valueOf(mSuperarko);
+                if (mSuperNum.length() == 1) {
+                    mSuperNum = "0" + mSuperNum;
+                }
+
 
                 if ((Hoje.getTronarko() == eTronarko) && (Hoje.getHiperarko() == mHiperarko)
                         && (Hoje.getSuperarko() == mSuperarko)) {
 
-                    if (comFundo){
+                    if (comFundo) {
                         TextoPequeno_Hoje2.EscreveNegrito(g, mSuperNum, QX - 2, QY);
-                    }else{
+                    } else {
                         TextoPequeno_Hoje.EscreveNegrito(g, mSuperNum, QX - 2, QY);
                     }
 
@@ -318,13 +321,5 @@ public class TronarkoCena extends Cena {
 
     }
 
-    public String numeral(int i) {
-
-        String r = String.valueOf(i);
-        if (r.length() == 1) {
-            r = "0" + r;
-        }
-        return r;
-    }
 
 }

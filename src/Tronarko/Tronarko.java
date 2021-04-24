@@ -1764,6 +1764,45 @@ public class Tronarko {
 			return ret;
 		}
 
+		public static String getNumerado(int eValor) {
+			String ret = "";
+
+			switch (eValor) {
+				case 1:
+					ret = "1 - " + Hiperarkos.ATLAS.toString();
+					break;
+				case 2:
+					ret = "2 - " +Hiperarkos.TERRON.toString();
+					break;
+				case 3:
+					ret = "3 - " +Hiperarkos.IGGROX.toString();
+					break;
+				case 4:
+					ret = "4 - " +Hiperarkos.OMPLO.toString();
+					break;
+				case 5:
+					ret = "5 - " +Hiperarkos.UXMO.toString();
+					break;
+				case 6:
+					ret = "6 - " +Hiperarkos.SALLU.toString();
+					break;
+				case 7:
+					ret = "7 - " +Hiperarkos.ITHUR.toString();
+					break;
+				case 8:
+					ret = "8 - " +Hiperarkos.GRAM.toString();
+					break;
+				case 9:
+					ret = "9 - " +Hiperarkos.HETTIZ.toString();
+					break;
+				case 10:
+					ret = "10 - " +Hiperarkos.ELLUN.toString();
+					break;
+			}
+
+			return ret;
+		}
+
 		public String toString() {
 			String ret = "";
 

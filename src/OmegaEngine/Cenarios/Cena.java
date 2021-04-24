@@ -1,32 +1,33 @@
 package OmegaEngine.Cenarios;
 
+import OmegaEngine.Windows;
+
 import java.awt.Graphics;
 
 public abstract class Cena {
 
-	private String mNome;
+    private String mNome;
 
 
-	public void setNome(String eNome) {
-		this.mNome = eNome;
-
-		
-
-	}
-
-	// Propriedades Importantes
-
-	public String getNome() {
-		return mNome;
-	}
+    public void setNome(String eNome) {
+        this.mNome = eNome;
 
 
-	// Metodos Importantes
+    }
 
-	public abstract void iniciar();
+    // Propriedades Importantes
 
-	public abstract void update(double dt);
+    public String getNome() {
+        return mNome;
+    }
 
-	public abstract void draw(Graphics g);
+
+    // Metodos Importantes
+
+    public abstract void iniciar(Windows eWindows);
+
+    public abstract void update(double dt);
+
+    public abstract void draw(Graphics g);
 
 }

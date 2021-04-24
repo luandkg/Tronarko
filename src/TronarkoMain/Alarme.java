@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import OmegaEngine.Windows;
 import OmegaEngine.Cenarios.Cena;
 import OmegaEngine.UI.BotaoCor;
-import OmegaEngine.UI.Clicavel;
+import OmegaEngine.UI.IteracaoUI;
 import OmegaEngine.Utils.Escritor;
 import Tronarko.TozteCor;
 import Tronarko.Tronarko;
@@ -38,7 +38,7 @@ public class Alarme extends Cena {
 
     private BotaoCor BTN_DISPENSADOR;
 
-    private Clicavel mClicavel;
+    private IteracaoUI mIteracaoUI;
     private int eixo_x = 0;
 
     private Tozte mAtualmente;
@@ -57,8 +57,7 @@ public class Alarme extends Cena {
     boolean mDispensar;
     Hazde mDispensadoCom;
 
-    public Alarme(Windows eWindows) {
-        mWindows = eWindows;
+    public Alarme() {
 
         TextoGrande = new Escritor(30, Color.BLACK);
         TextoGrande_Hoje = new Escritor(30, Color.RED);
@@ -72,7 +71,7 @@ public class Alarme extends Cena {
         TronarkoC = new Tronarko();
         EventumC = new Eventum();
 
-        mClicavel = new Clicavel();
+        mIteracaoUI = new IteracaoUI();
 
         BTN_DISPENSADOR = new BotaoCor(600, 480, 200, 50, new Color(50, 90, 156));
 
@@ -112,7 +111,8 @@ public class Alarme extends Cena {
     }
 
     @Override
-    public void iniciar() {
+    public void iniciar(Windows eWindows) {
+        mWindows = eWindows;
         mWindows.setTitle("Alarme");
     }
 
@@ -123,12 +123,12 @@ public class Alarme extends Cena {
         mAgora = TronarkoC.getHazde();
 
 
-        mClicavel.update(dt, mWindows.getMouse().Pressed());
+        mIteracaoUI.update(dt, mWindows.getMouse().Pressed());
 
         //System.out.println("Clicavel : " + mClicavel.getClicado()); 
 
 
-        if (mClicavel.getClicado()) {
+        if (mIteracaoUI.podeClicar()) {
 
             int px = (int) mWindows.getMouse().x;
             int py = (int) mWindows.getMouse().y;

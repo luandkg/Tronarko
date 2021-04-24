@@ -69,7 +69,7 @@ public class Windows extends JFrame implements Runnable {
 	public void setCenario(int eCenaID) {
 		mCena = mCenarios.getCenario(eCenaID).getCena();
 		mCenaID = eCenaID;
-		mCena.iniciar();
+		mCena.iniciar(this);
 	}
 
 	public int CriarCenarioAplicavel(Cena eCena) {
