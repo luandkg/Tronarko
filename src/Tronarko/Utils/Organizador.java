@@ -1,5 +1,11 @@
-package Tronarko;
+package Tronarko.Utils;
 
+
+import Tronarko.Hazde;
+import Tronarko.Superarkos;
+import Tronarko.Tozte;
+import Tronarko.Utils.Lembrete;
+import Tronarko.Utils.LembreteSuperarko;
 
 import java.util.ArrayList;
 

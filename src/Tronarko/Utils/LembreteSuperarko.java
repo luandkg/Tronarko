@@ -1,4 +1,7 @@
-package Tronarko;
+package Tronarko.Utils;
+
+import Tronarko.Hazde;
+import Tronarko.Superarkos;
 
 public class LembreteSuperarko {
 

@@ -3,10 +3,8 @@ package Tronarko.Eventos;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import Tronarko.Ocorrencia;
 import Tronarko.TozteCor;
-import Tronarko.Ocorrencia.Modos;
-import Tronarko.Tronarko;
+import Tronarko.Eventos.Ocorrencia.Modos;
 import Tronarko.Eventos.Avisar.Avisar;
 import Tronarko.Eventos.Avisar.AvisarGrandeEvento;
 import Tronarko.Eventos.Avisar.AvisarPequenoEvento;

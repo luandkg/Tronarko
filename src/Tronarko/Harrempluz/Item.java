@@ -1,13 +1,13 @@
 package Tronarko.Harrempluz;
 
-enum Itens {
+public enum Item{
 
     COR(0), ELEMENTO(1), METAL(2), QUALIDADE(3), DEFEITO(4), NUMERO_10(5), NUMERO_100(6), VOGAL(7), CONSOANTE(8),
     LETRA(9), CRISTAL(10), DIRECAO(11);
 
     private int mValor;
 
-    Itens(int eValor) {
+    Item(int eValor) {
         mValor = eValor;
     }
 

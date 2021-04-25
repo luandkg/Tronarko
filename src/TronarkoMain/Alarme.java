@@ -18,9 +18,9 @@ import Tronarko.Hiperarkos;
 
 import Tronarko.Eventos.Eventum;
 import Tronarko.Satelites.MapaCelestial;
-import Tronarko.Organizador;
-import Tronarko.Lembrete;
-import Tronarko.Cronometro;
+import Tronarko.Utils.Organizador;
+import Tronarko.Utils.Lembrete;
+import Tronarko.Utils.Cronometro;
 
 public class Alarme extends Cena {
 

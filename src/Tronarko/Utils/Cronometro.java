@@ -1,4 +1,6 @@
-package Tronarko;
+package Tronarko.Utils;
+
+import Tronarko.Tronarko;
 
 public class Cronometro {
 
