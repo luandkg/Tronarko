@@ -14,7 +14,8 @@ import Tronarko.Harrempluz.Harrem;
 import Tronarko.Harrempluz.HarremItem;
 import Tronarko.Harrempluz.Harrempluz;
 import Tronarko.Tronarko;
-import Tronarko.Tronarko.Tozte;
+import Tronarko.Tozte;
+import Tronarko.Signos;
 
 public class HarrempluzCena extends Cena {
 
@@ -169,7 +170,7 @@ public class HarrempluzCena extends Cena {
     public void draw_signo(Graphics g, int mHiperarko, int Faixador, int CAIXA_X, int CAIXA_Y, int CAIXA_ALTURA) {
 
         int i = mHiperarko - 1;
-        String eSigno = Tronarko.Signos.get(i + 1).toString();
+        String eSigno = Signos.get(i + 1).toString();
         String eTitulo = String.valueOf(i + 1) + " - " + eSigno;
 
         TextoGrande.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);

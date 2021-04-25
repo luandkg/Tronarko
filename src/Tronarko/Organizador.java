@@ -15,19 +15,19 @@ public class Organizador {
 
     }
 
-    public void marcarSimples(Tronarko.Tozte eTozte, Tronarko.Hazde eHazde) {
+    public void marcarSimples(Tozte eTozte, Hazde eHazde) {
 
         mLembretes.add(new Lembrete(eTozte, eHazde));
 
     }
 
-    public void marcarSuperarko(Tronarko.Superarkos eSuperarkos, Tronarko.Hazde eHazde) {
+    public void marcarSuperarko(Superarkos eSuperarkos, Hazde eHazde) {
 
         mSLembretes.add(new LembreteSuperarko(eSuperarkos, eHazde));
 
     }
 
-    public ArrayList<Lembrete> getLembretes(Tronarko.Tozte eHoje) {
+    public ArrayList<Lembrete> getLembretes(Tozte eHoje) {
 
         ArrayList<Lembrete> mLembrar = new ArrayList<Lembrete>();
 

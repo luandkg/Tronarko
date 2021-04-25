@@ -10,7 +10,7 @@ import Tronarko.Tronarko;
 import Tronarko.Eventos.Avisar.Avisar;
 import Tronarko.Eventos.Avisar.AvisarGrandeEvento;
 import Tronarko.Eventos.Avisar.AvisarPequenoEvento;
-import Tronarko.Tronarko.Tozte;
+import Tronarko.Tozte;
 
 public class Eventum {
 

@@ -2,21 +2,21 @@ package Tronarko;
 
 public class LembreteSuperarko {
 
-    private Tronarko.Superarkos mSuperarkos;
-    private Tronarko.Hazde mHazde;
+    private Superarkos mSuperarkos;
+    private Hazde mHazde;
 
-    public LembreteSuperarko(Tronarko.Superarkos eSuperarkos, Tronarko.Hazde eHazde) {
+    public LembreteSuperarko(Superarkos eSuperarkos,Hazde eHazde) {
 
         mSuperarkos = eSuperarkos;
         mHazde = eHazde;
 
     }
 
-    public Tronarko.Superarkos getSuperarkos() {
+    public Superarkos getSuperarkos() {
         return mSuperarkos;
     }
 
-    public Tronarko.Hazde getHazde() {
+    public Hazde getHazde() {
         return mHazde;
     }
 

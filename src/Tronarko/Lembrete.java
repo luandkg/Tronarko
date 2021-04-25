@@ -1,22 +1,24 @@
 package Tronarko;
 
+import Tronarko.Tozte;
+
 public class Lembrete {
 
-    private Tronarko.Tozte mTozte;
-    private Tronarko.Hazde mHazde;
+    private Tozte mTozte;
+    private Hazde mHazde;
 
-    public Lembrete(Tronarko.Tozte eTozte, Tronarko.Hazde eHazde) {
+    public Lembrete(Tozte eTozte, Hazde eHazde) {
 
         mTozte = eTozte;
         mHazde = eHazde;
 
     }
 
-    public Tronarko.Tozte getTozte() {
+    public Tozte getTozte() {
         return mTozte;
     }
 
-    public Tronarko.Hazde getHazde() {
+    public Hazde getHazde() {
         return mHazde;
     }
 

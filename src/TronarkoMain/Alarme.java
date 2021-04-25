@@ -11,8 +11,11 @@ import OmegaEngine.UI.IteracaoUI;
 import OmegaEngine.Utils.Escritor;
 import Tronarko.TozteCor;
 import Tronarko.Tronarko;
-import Tronarko.Tronarko.Hazde;
-import Tronarko.Tronarko.Tozte;
+import Tronarko.Tozte;
+import Tronarko.Hazde;
+import Tronarko.Superarkos;
+import Tronarko.Hiperarkos;
+
 import Tronarko.Eventos.Eventum;
 import Tronarko.Satelites.MapaCelestial;
 import Tronarko.Organizador;
@@ -91,14 +94,14 @@ public class Alarme extends Cena {
         mOrganizador.marcarSimples(TronarkoC.getTozte(), TronarkoC.getHazde().adicionar_Itta(+4).getComEttonZerado());
 
 
-        mOrganizador.marcarSuperarko(Tronarko.Superarkos.ALFA, new Hazde(2, 0, 0));
-        mOrganizador.marcarSuperarko(Tronarko.Superarkos.ALFA, new Hazde(6, 30, 0));
-        mOrganizador.marcarSuperarko(Tronarko.Superarkos.ALFA, new Hazde(8, 50, 0));
+        mOrganizador.marcarSuperarko(Superarkos.ALFA, new Hazde(2, 0, 0));
+        mOrganizador.marcarSuperarko(Superarkos.ALFA, new Hazde(6, 30, 0));
+        mOrganizador.marcarSuperarko(Superarkos.ALFA, new Hazde(8, 50, 0));
 
-        mOrganizador.marcarSuperarko(Tronarko.Superarkos.GAMA, new Hazde(5, 0, 0));
+        mOrganizador.marcarSuperarko(Superarkos.GAMA, new Hazde(5, 0, 0));
 
-        mOrganizador.marcarSuperarko(Tronarko.Superarkos.IOTA, new Hazde(6, 30, 0));
-        mOrganizador.marcarSuperarko(Tronarko.Superarkos.IOTA, new Hazde(8, 30, 0));
+        mOrganizador.marcarSuperarko(Superarkos.IOTA, new Hazde(6, 30, 0));
+        mOrganizador.marcarSuperarko(Superarkos.IOTA, new Hazde(8, 30, 0));
 
         mTocar = 1;
 
@@ -271,7 +274,7 @@ public class Alarme extends Cena {
 
         int i = mHiperarko - 1;
 
-        String eTitulo = String.valueOf(i + 1) + " - " + Tronarko.Hiperarkos.get(i + 1).toString();
+        String eTitulo = String.valueOf(i + 1) + " - " + Hiperarkos.get(i + 1).toString();
 
         if (Hoje.getHiperarko() == (i + 1)) {
 
@@ -285,7 +288,7 @@ public class Alarme extends Cena {
 
         for (int s = 0; s < 10; s++) {
 
-            String eMega = Tronarko.Superarkos.get(s + 1).getCapital();
+            String eMega = Superarkos.get(s + 1).getCapital();
 
             if ((Hoje.getTronarko() == eTronarko) && (Hoje.getHiperarko() == mHiperarko)) {
 

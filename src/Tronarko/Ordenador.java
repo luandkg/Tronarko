@@ -2,9 +2,7 @@ package Tronarko;
 
 import java.util.ArrayList;
 
-import Tronarko.Tronarko.Hazde;
-import Tronarko.Tronarko.Tozte;
-import Tronarko.Tronarko.Tron;
+
 
 public class Ordenador {
 

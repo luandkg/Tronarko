@@ -11,8 +11,11 @@ import OmegaEngine.UI.IteracaoUI;
 import OmegaEngine.Utils.Escritor;
 import Tronarko.TozteCor;
 import Tronarko.Tronarko;
-import Tronarko.Tronarko.Hazde;
-import Tronarko.Tronarko.Tozte;
+import Tronarko.Tozte;
+import Tronarko.Hazde;
+import Tronarko.Superarkos;
+import Tronarko.Hiperarkos;
+
 import Tronarko.Eventos.Eventum;
 import Tronarko.Satelites.MapaCelestial;
 
@@ -202,7 +205,11 @@ public class TronarkoCena extends Cena {
             if (InfoC.getNome().contains("Reciclum")) {
                 TextoPequeno.EscreveNegrito(g, InfoC.getNome(), LX + 30, LY);
             } else {
-                TextoPequeno.EscreveNegrito(g, InfoC.getNome() + " -->> " + InfoC.getComplemento(), LX + 30, LY);
+
+                TextoPequeno.EscreveNegrito(g, InfoC.getNome(), LX + 30, LY);
+                TextoPequeno.EscreveNegrito(g, " -->> " + InfoC.getComplemento(), LX + 250, LY);
+
+
             }
 
             LY += 50;
@@ -217,14 +224,14 @@ public class TronarkoCena extends Cena {
         int eTronarko = Hoje.getTronarko();
 
         if (Hoje.getHiperarko() == (mHiperarko)) {
-            TextoGrande_Hoje.EscreveNegrito(g, Tronarko.Hiperarkos.getNumerado(mHiperarko), CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
+            TextoGrande_Hoje.EscreveNegrito(g, Hiperarkos.getNumerado(mHiperarko), CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
         } else {
-            TextoGrande.EscreveNegrito(g, Tronarko.Hiperarkos.getNumerado(mHiperarko), CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
+            TextoGrande.EscreveNegrito(g, Hiperarkos.getNumerado(mHiperarko), CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
         }
 
         for (int s = 0; s < 10; s++) {
 
-            String eMega = Tronarko.Superarkos.get(s + 1).getCapital();
+            String eMega = Superarkos.get(s + 1).getCapital();
 
             if ((Hoje.getTronarko() == eTronarko) && (Hoje.getHiperarko() == mHiperarko)) {
 

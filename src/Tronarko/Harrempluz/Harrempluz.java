@@ -2,7 +2,6 @@ package Tronarko.Harrempluz;
 
 import java.util.ArrayList;
 
-import Tronarko.Tronarko.Signos;
 
 public class Harrempluz {
 

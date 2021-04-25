@@ -2,7 +2,7 @@ package Astral;
 
 import Tronarko.Harrempluz.Colecao;
 import Tronarko.Harrempluz.Harrem;
-import Tronarko.Tronarko;
+import Tronarko.Signos;
 
 import java.util.ArrayList;
 
@@ -17,16 +17,16 @@ public class Criador {
         mColecoes = new ArrayList<Colecao>();
 
 
-        mSignos.add(Tronarko.Signos.TIGRE.toString());
-        mSignos.add(Tronarko.Signos.RAPOSA.toString());
-        mSignos.add(Tronarko.Signos.LEOPARDO.toString());
-        mSignos.add(Tronarko.Signos.LEAO.toString());
-        mSignos.add(Tronarko.Signos.TOURO.toString());
-        mSignos.add(Tronarko.Signos.LOBO.toString());
-        mSignos.add(Tronarko.Signos.GATO.toString());
-        mSignos.add(Tronarko.Signos.CARPA.toString());
-        mSignos.add(Tronarko.Signos.GAVIAO.toString());
-        mSignos.add(Tronarko.Signos.SERPENTE.toString());
+        mSignos.add(Signos.TIGRE.toString());
+        mSignos.add(Signos.RAPOSA.toString());
+        mSignos.add(Signos.LEOPARDO.toString());
+        mSignos.add(Signos.LEAO.toString());
+        mSignos.add(Signos.TOURO.toString());
+        mSignos.add(Signos.LOBO.toString());
+        mSignos.add(Signos.GATO.toString());
+        mSignos.add(Signos.CARPA.toString());
+        mSignos.add(Signos.GAVIAO.toString());
+        mSignos.add(Signos.SERPENTE.toString());
 
 
 

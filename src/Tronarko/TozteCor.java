@@ -3,7 +3,7 @@ package Tronarko;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import Tronarko.Tronarko.Tozte;
+import Tronarko.Tozte;
 
 public class TozteCor {
 
