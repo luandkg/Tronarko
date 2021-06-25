@@ -40,7 +40,7 @@
 	
 ### ARCO
 
- Cada <b>Superarko</b> é formado por <b>10 Arcos</b> [ 1 ... 10 ] que representam as horas
+ Cada <b>Superarko</b> é formado por <b>10 Arcos</b> [ 0 ... 9 ] que representam as horas
  
  Cada <b>Arco</b> é formado por <b>100 Ittas </b>que representam os minutos
  

@@ -63,7 +63,7 @@ public  class Tron {
         int narco = mHazdeC.getArco() + a;
         int nsuperarko = 0;
 
-        while (narco > 10) {
+        while (narco > 9) {
             narco -= 10;
             nsuperarko += 1;
         }

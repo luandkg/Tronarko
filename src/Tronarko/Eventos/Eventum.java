@@ -3,6 +3,7 @@ package Tronarko.Eventos;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Tronarko.Hizarkos;
 import Tronarko.TozteCor;
 import Tronarko.Eventos.Ocorrencia.Modos;
 import Tronarko.Eventos.Avisar.Avisar;
@@ -770,6 +771,23 @@ public class Eventum {
         return mFiltrando;
     }
 
+    public ArrayList<TozteCor> getToztesComCorHizarko(int eTronarko) {
+
+        ArrayList<TozteCor> ToztesComCor = new ArrayList<TozteCor>();
+
+        Tozte eTozte = new Tozte(1, 1, eTronarko);
+
+        for (int n = 0; n < 500; n++) {
+
+            ToztesComCor.add(new TozteCor(eTozte.getHizarko().toString(), eTozte, getHizarkoCor(eTozte.getHizarko())));
+
+            eTozte = eTozte.adicionar_Superarko(1);
+        }
+
+
+        return ToztesComCor;
+    }
+
 
     public Color getCor(String eNome) {
 
@@ -819,6 +837,30 @@ public class Eventum {
         if (eNome.contains("Labirinto")) {
             eCor = new Color(154, 205, 50);
         }
+
+        return eCor;
+    }
+
+    public Color getHizarkoCor(Hizarkos eHizarko) {
+
+        Color eCor = Color.BLACK;
+
+        if (eHizarko == Hizarkos.HARBARIUM) {
+            eCor = Color.YELLOW;
+        }
+
+        if (eHizarko == Hizarkos.DEGGOVIUM) {
+            eCor = Color.RED;
+        }
+
+        if (eHizarko == Hizarkos.NUZTIUM) {
+            eCor = new Color(92, 80, 200);
+        }
+
+        if (eHizarko == Hizarkos.HITTARIUM) {
+            eCor = new Color(74, 118, 110);
+        }
+
 
         return eCor;
     }

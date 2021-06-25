@@ -1,6 +1,6 @@
 package Tronarko;
 
-public  class Hazde {
+public class Hazde {
 
     private int mArkos;
     private int mIttas;
@@ -25,13 +25,13 @@ public  class Hazde {
     }
 
     public Hazde getCopia() {
-        return new Hazde(mArkos,mIttas,mUzzons);
+        return new Hazde(mArkos, mIttas, mUzzons);
     }
 
     public int getTotalEttons() {
         int ret = 0;
 
-        ret += (this.getArco() - 1) * 100 * 100;
+        ret += (this.getArco()) * 100 * 100;
         ret += this.getItta() * 100;
         ret += this.getUzzon();
 
@@ -58,19 +58,53 @@ public  class Hazde {
         return getTexto();
     }
 
+    public long getTotalEttonsParaAcabar() {
+
+        int eValor = getTotalEttons();
+
+        int eTudo = 10 * 100 * 100;
+        int eFalta = eTudo - eValor;
+
+        return eFalta;
+    }
+
+    public String getTotalEttonsParaAcabarFormatado() {
+
+        int eValor = getTotalEttons();
+
+        int eTudo = 10 * 100 * 100;
+        int eFalta = eTudo - eValor;
+
+        int eEttons = eFalta;
+        int eIttas = 0;
+        int eArcos = 0;
+
+        while (eEttons > 100) {
+            eEttons -= 100;
+            eIttas += 1;
+        }
+
+        while (eIttas > 100) {
+            eIttas -= 100;
+            eArcos += 1;
+        }
+
+        return "" + eArcos + ":" + eIttas + ":" + eEttons;
+    }
+
     public Periarkos getPeriarko() {
         Periarkos ret = null;
 
-        if (getArco() >= 1 && getArco() <= 2) {
+        if (getArco() >= 0 && getArco() <= 1) {
             ret = Periarkos.UD;
         }
-        if (getArco() >= 3 && getArco() <= 5) {
+        if (getArco() >= 2 && getArco() <= 4) {
             ret = Periarkos.AD;
         }
-        if (getArco() >= 6 && getArco() <= 8) {
+        if (getArco() >= 5 && getArco() <= 7) {
             ret = Periarkos.ED;
         }
-        if (getArco() >= 9 && getArco() <= 10) {
+        if (getArco() >= 8 && getArco() <= 9) {
             ret = Periarkos.OD;
         }
 
@@ -86,18 +120,18 @@ public  class Hazde {
     }
 
     public Modarkos getModarko() {
-       Modarkos ret = null;
+        Modarkos ret = null;
 
-        if (getArco() >= 1 && getArco() <= 2) {
+        if (getArco() >= 0 && getArco() <= 1) {
             ret = Modarkos.OZZ;
         }
-        if (getArco() >= 3 && getArco() <= 5) {
-            ret =Modarkos.AZZ;
-        }
-        if (getArco() >= 6 && getArco() <= 8) {
+        if (getArco() >= 2 && getArco() <= 4) {
             ret = Modarkos.AZZ;
         }
-        if (getArco() >= 9 && getArco() <= 10) {
+        if (getArco() >= 5 && getArco() <= 7) {
+            ret = Modarkos.AZZ;
+        }
+        if (getArco() >= 8 && getArco() <= 9) {
             ret = Modarkos.OZZ;
         }
 
@@ -132,12 +166,11 @@ public  class Hazde {
     }
 
 
-
     public Hazde modificar_Arco(Hazde sTron, int a) {
 
         int narco = sTron.getArco() + a;
 
-        while (narco > 10) {
+        while (narco > 9) {
             narco -= 10;
         }
 
@@ -199,7 +232,7 @@ public  class Hazde {
 
         int narco = this.getArco() + a;
 
-        while (narco > 10) {
+        while (narco > 9) {
             narco -= 10;
         }
 
@@ -268,7 +301,7 @@ public  class Hazde {
         int resposta = 0;
 
         if (this.getTotalEttons() == Outro.getTotalEttons()) {
-            resposta=0;
+            resposta = 0;
         }
         if (this.getTotalEttons() < Outro.getTotalEttons()) {
             resposta = -1;

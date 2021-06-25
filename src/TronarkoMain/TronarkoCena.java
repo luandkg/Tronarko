@@ -33,8 +33,8 @@ public class TronarkoCena extends Cena {
     private Escritor TextoPequeno_Hoje;
     private Escritor TextoPequeno_Hoje2;
 
-    private Tronarko TronarkoC;
-    private Eventum EventumC;
+    private Tronarko mTronarkum;
+    private Eventum mEnventum;
 
     private BotaoCor BTN_MENOS;
     private BotaoCor BTN_MAIS;
@@ -62,8 +62,8 @@ public class TronarkoCena extends Cena {
         TextoPequeno_Hoje = new Escritor(15, Color.RED);
         TextoPequeno_Hoje2 = new Escritor(15, Color.WHITE);
 
-        TronarkoC = new Tronarko();
-        EventumC = new Eventum();
+        mTronarkum = new Tronarko();
+        mEnventum = new Eventum();
 
         mIteracaoUI = new IteracaoUI();
 
@@ -79,8 +79,8 @@ public class TronarkoCena extends Cena {
     public void update(double dt) {
 
 
-        mHoje = TronarkoC.getTozte();
-        mAgora = TronarkoC.getHazde();
+        mHoje = mTronarkum.getTozte();
+        mAgora = mTronarkum.getHazde();
 
         mIteracaoUI.update(dt, mWindows.getMouse().Pressed());
 
@@ -120,13 +120,44 @@ public class TronarkoCena extends Cena {
         Tozte mAntes = mAtualmente.adicionar_Superarko(-50);
         Tozte mDepois = mAtualmente.adicionar_Superarko(+50);
 
-        ArrayList<TozteCor> mInfos = EventumC.getToztesComCorEmIntervalo(mAntes, mDepois);
+        ArrayList<TozteCor> mInfos = mEnventum.getToztesComCorEmIntervalo(mAntes, mDepois);
 
         for (TozteCor eTozteCor : mInfos) {
-            System.out.println(" -->> " + eTozteCor.getNome() + " :: " + eTozteCor.getTozte().getTexto());
+            System.out.println(" -->> " + eTozteCor.getNome() + " :: " + eTozteCor.getTozte().getTexto() + " -->> " + getDistancia(mAtualmente, eTozteCor.getTozte()));
         }
 
+
     }
+
+
+    public int getDistancia(Tozte eReferencia, Tozte eAlgumTozte) {
+
+        int dif = 0;
+        Tozte eOutro_Ref = eReferencia.getCopia();
+        Tozte eOutro_AlgumTozte = eAlgumTozte.getCopia();
+
+        if (eOutro_Ref.MaiorQue(eOutro_AlgumTozte)) {
+
+            while (eOutro_Ref.MaiorQue(eOutro_AlgumTozte)) {
+                eOutro_Ref = eOutro_Ref.adicionar_Superarko(-1);
+                dif += 1;
+            }
+
+        } else if (eOutro_Ref.MenorrQue(eOutro_AlgumTozte)) {
+
+            while (eOutro_Ref.MenorrQue(eOutro_AlgumTozte)) {
+                eOutro_Ref = eOutro_Ref.adicionar_Superarko(+1);
+                dif -= 1;
+            }
+
+        } else {
+            dif = 0;
+        }
+
+        return dif;
+
+    }
+
 
     @Override
     public void draw(Graphics g) {
@@ -137,7 +168,9 @@ public class TronarkoCena extends Cena {
         BTN_MAIS.draw(g);
 
 
-        ArrayList<TozteCor> mInfos = EventumC.getToztesComCor(mHoje.getTronarko());
+        ArrayList<TozteCor> mInfos = mEnventum.getToztesComCor(mHoje.getTronarko());
+        //ArrayList<TozteCor> mInfos = mEnventum.getToztesComCorHizarko(mHoje.getTronarko());
+
 
         int CAIXA_X = 40;
         int CAIXA_Y = 80;
@@ -161,8 +194,13 @@ public class TronarkoCena extends Cena {
         int LX = 950;
         int LY = 200;
 
-        TextoPequeno.EscreveNegrito(g, " -->> Hoje : " + mHoje.toString(), LX, LY - 100);
-        TextoPequeno.EscreveNegrito(g, " -->> Agora : " + mAgora.toString(), LX, LY - 50);
+        int ePosY = 100;
+
+        TextoPequeno.EscreveNegrito(g, " -->> Hoje : " + mHoje.toString(), LX, ePosY);
+        TextoPequeno.EscreveNegrito(g, " -->> Agora : " + mAgora.toString(), LX, ePosY + 50);
+        TextoPequeno.EscreveNegrito(g, " -->> Falta : " + mAgora.getTotalEttonsParaAcabarFormatado(), LX, ePosY + 100);
+
+        mAgora.getTotalEttonsParaAcabar();
 
 
         MapaCelestial.Allux AlluxC = new MapaCelestial.Allux();
@@ -193,7 +231,7 @@ public class TronarkoCena extends Cena {
         LY = 500;
         LX = 950;
 
-        for (TozteCor InfoC : EventumC.getLegenda(mInfos)) {
+        for (TozteCor InfoC : mEnventum.getLegenda(mInfos)) {
 
             g.setColor(InfoC.getCor());
             g.fillRect(LX, LY - 15, 20, 20);
@@ -205,11 +243,8 @@ public class TronarkoCena extends Cena {
             if (InfoC.getNome().contains("Reciclum")) {
                 TextoPequeno.EscreveNegrito(g, InfoC.getNome(), LX + 30, LY);
             } else {
-
                 TextoPequeno.EscreveNegrito(g, InfoC.getNome(), LX + 30, LY);
                 TextoPequeno.EscreveNegrito(g, " -->> " + InfoC.getComplemento(), LX + 250, LY);
-
-
             }
 
             LY += 50;
@@ -217,6 +252,7 @@ public class TronarkoCena extends Cena {
         }
 
     }
+
 
     public void draw_hiperarko(Graphics g, Tozte Hoje, ArrayList<TozteCor> mInfos, int mHiperarko, int Faixador,
                                int CAIXA_X, int CAIXA_Y, int CAIXA_ALTURA) {
@@ -256,6 +292,9 @@ public class TronarkoCena extends Cena {
 
         int mSuperarko = 1;
 
+        String mAtualInfoNome = "";
+        String mPassadoInfoNome = "";
+
         for (int m = 0; m < 5; m++) {
 
             boolean anteriorComFundo = false;
@@ -276,6 +315,7 @@ public class TronarkoCena extends Cena {
                     if (mTozte.Igual(InfoC.getTozte())) {
                         mCor = InfoC.getCor();
                         comFundo = true;
+                        mAtualInfoNome = InfoC.getNome();
                         break;
                     }
 
@@ -287,13 +327,17 @@ public class TronarkoCena extends Cena {
 
                 if (comFundo & anteriorComFundo && s < 10) {
 
-                    g.setColor(mCor);
-                    g.fillRect(QX - 3 - 18, QY - 7, 20, 5);
+                    if (mPassadoInfoNome.contentEquals(mAtualInfoNome)) {
+                        g.setColor(mCor);
+                        g.fillRect(QX - 3 - 18, QY - 7, 20, 5);
+                    }
 
                 }
 
                 anteriorComFundo = comFundo;
 
+
+                mPassadoInfoNome = mAtualInfoNome;
 
                 String mSuperNum = String.valueOf(mSuperarko);
                 if (mSuperNum.length() == 1) {

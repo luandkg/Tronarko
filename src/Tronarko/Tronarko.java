@@ -21,15 +21,16 @@ import java.util.Random;
 //  ORGANIZACAO 5 : 25/04/2021
 //
 //
-//	ATUALIZACAO 1 : 29/10/2018 - Implementacao Modarko e Periarko
-//	ATUALIZACAO 2 : 01/12/2019 - Alteracao de Nomenclatura dos Superarkos 
-//  ATUALIZACAO 3 : 29/12/2019 - Metodo de Sincronizacao
-//	ATUALIZACAO 4 : 24/03/2020 - Organizacao dos Satelites
-//	ATUALIZACAO 5 : 25/03/2020 - Aprimoramento do Metodo de Eventos e Criacao das Classes de Intervalo
-// 	ATUALIZACAO 6 : 26/03/2020 - Metodo de Ordenacao , Fusos Horarios e Enumeradores : Hiperarkos, Superarkos, Signos, Periakos e Modarkos.
-//	ATUALIZACAO 7 : 26/03/2020 - TozteCor e Interface UI
-//	ATUALIZACAO 8 : 30/03/2020 - Avisos
-//	ATUALIZACAO 9 : 25/04/2021 - ReOrganizacao do Pacote Tronarko
+//	ATUALIZACAO 1  : 29/10/2018 - Implementacao Modarko e Periarko
+//	ATUALIZACAO 2  : 01/12/2019 - Alteracao de Nomenclatura dos Superarkos
+//  ATUALIZACAO 3  : 29/12/2019 - Metodo de Sincronizacao
+//	ATUALIZACAO 4  : 24/03/2020 - Organizacao dos Satelites
+//	ATUALIZACAO 5  : 25/03/2020 - Aprimoramento do Metodo de Eventos e Criacao das Classes de Intervalo
+// 	ATUALIZACAO 6  : 26/03/2020 - Metodo de Ordenacao , Fusos Horarios e Enumeradores : Hiperarkos, Superarkos, Signos, Periakos e Modarkos.
+//	ATUALIZACAO 7  : 26/03/2020 - TozteCor e Interface UI
+//	ATUALIZACAO 8  : 30/03/2020 - Avisos
+//	ATUALIZACAO 9  : 25/04/2021 - ReOrganizacao do Pacote Tronarko
+//	ATUALIZACAO 10 : 15/05/2021 - Hizarkos Com Cor
 
 public class Tronarko {
 
@@ -235,7 +236,7 @@ public class Tronarko {
 			iArco += 1;
 		}
 
-		iArco += 1;
+		//iArco += 1;
 
 		return new Hazde(iArco, iIttas, iUzzons);
 	}
