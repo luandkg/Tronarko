@@ -2,7 +2,7 @@ package Tronarko;
 
 public  enum Hiperarkos {
 
-    ATLAS(1), TERRON(2), IGGROX(3), OMPLO(4), UXMO(5), SALLU(6), ITHUR(7), GRAM(8), HETTIZ(9), ELLUN(10);
+    DAZTO(1), HERTO(2), PURGO(3), NOPTO(4), FENCO(5), MOZTO(6), CARGO(7), RIZNO(8), SACNO(9), TORNO(10);
 
     private int mValor;
 
@@ -19,34 +19,34 @@ public  enum Hiperarkos {
 
         switch (eValor) {
             case 1:
-                ret = Hiperarkos.ATLAS;
+                ret = Hiperarkos.DAZTO;
                 break;
             case 2:
-                ret = Hiperarkos.TERRON;
+                ret = Hiperarkos.HERTO;
                 break;
             case 3:
-                ret = Hiperarkos.IGGROX;
+                ret = Hiperarkos.PURGO;
                 break;
             case 4:
-                ret = Hiperarkos.OMPLO;
+                ret = Hiperarkos.NOPTO;
                 break;
             case 5:
-                ret = Hiperarkos.UXMO;
+                ret = Hiperarkos.FENCO;
                 break;
             case 6:
-                ret = Hiperarkos.SALLU;
+                ret = Hiperarkos.MOZTO;
                 break;
             case 7:
-                ret = Hiperarkos.ITHUR;
+                ret = Hiperarkos.CARGO;
                 break;
             case 8:
-                ret = Hiperarkos.GRAM;
+                ret = Hiperarkos.RIZNO;
                 break;
             case 9:
-                ret = Hiperarkos.HETTIZ;
+                ret = Hiperarkos.SACNO;
                 break;
             case 10:
-                ret = Hiperarkos.ELLUN;
+                ret = Hiperarkos.TORNO;
                 break;
         }
 
@@ -58,34 +58,34 @@ public  enum Hiperarkos {
 
         switch (eValor) {
             case 1:
-                ret = "1 - " + Hiperarkos.ATLAS.toString();
+                ret = "1 - " + Hiperarkos.DAZTO.toString();
                 break;
             case 2:
-                ret = "2 - " +Hiperarkos.TERRON.toString();
+                ret = "2 - " +Hiperarkos.HERTO.toString();
                 break;
             case 3:
-                ret = "3 - " +Hiperarkos.IGGROX.toString();
+                ret = "3 - " +Hiperarkos.PURGO.toString();
                 break;
             case 4:
-                ret = "4 - " +Hiperarkos.OMPLO.toString();
+                ret = "4 - " +Hiperarkos.NOPTO.toString();
                 break;
             case 5:
-                ret = "5 - " +Hiperarkos.UXMO.toString();
+                ret = "5 - " +Hiperarkos.FENCO.toString();
                 break;
             case 6:
-                ret = "6 - " +Hiperarkos.SALLU.toString();
+                ret = "6 - " +Hiperarkos.MOZTO.toString();
                 break;
             case 7:
-                ret = "7 - " +Hiperarkos.ITHUR.toString();
+                ret = "7 - " +Hiperarkos.CARGO.toString();
                 break;
             case 8:
-                ret = "8 - " +Hiperarkos.GRAM.toString();
+                ret = "8 - " +Hiperarkos.RIZNO.toString();
                 break;
             case 9:
-                ret = "9 - " +Hiperarkos.HETTIZ.toString();
+                ret = "9 - " +Hiperarkos.SACNO.toString();
                 break;
             case 10:
-                ret = "10 - " +Hiperarkos.ELLUN.toString();
+                ret = "10 - " +Hiperarkos.TORNO.toString();
                 break;
         }
 
@@ -96,34 +96,34 @@ public  enum Hiperarkos {
         String ret = "";
 
         if (mValor == 1) {
-            ret = "ATLAS";
+            ret = "DAZTO";
         }
         if (mValor == 2) {
-            ret = "TERRON";
+            ret = "HERTO";
         }
         if (mValor == 3) {
-            ret = "IGGROX";
+            ret = "PURGO";
         }
         if (mValor == 4) {
-            ret = "OMPLO";
+            ret = "NOPTO";
         }
         if (mValor == 5) {
-            ret = "UXMO";
+            ret = "FENCO";
         }
         if (mValor == 6) {
-            ret = "SALLU";
+            ret = "MOZTO";
         }
         if (mValor == 7) {
-            ret = "ITHUR";
+            ret = "CARGO";
         }
         if (mValor == 8) {
-            ret = "GRAM";
+            ret = "RIZNO";
         }
         if (mValor == 9) {
-            ret = "HETTIZ";
+            ret = "SACNO";
         }
         if (mValor == 10) {
-            ret = "ELLUN";
+            ret = "TORNO";
         }
 
         return ret;

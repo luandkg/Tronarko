@@ -73,6 +73,7 @@ public class TronarkoCena extends Cena {
         mAtualmente = null;
         mHoje = null;
         mQuantos = 0;
+
     }
 
     @Override
@@ -96,8 +97,8 @@ public class TronarkoCena extends Cena {
         }
 
 
-        mHoje = mHoje.adicionar_Superarko(mQuantos);
-
+     //   mHoje = mHoje.adicionar_Superarko(mQuantos);
+        mAgora = mAgora.adicionar_Arco(mQuantos);
 
         if (mAtualmente == null) {
             mAtualmente = mHoje;

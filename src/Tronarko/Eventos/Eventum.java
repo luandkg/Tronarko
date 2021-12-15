@@ -34,7 +34,7 @@ public class Eventum {
 
         mOcorrencias.add(new Ocorrencia("Corrida dos Ventos", 26, 1, 6500, 5, 3));
         mOcorrencias.add(new Ocorrencia("Olimpíadas de Trannor", 11, 3, 6444, 32, 33));
-        mOcorrencias.add(new Ocorrencia("Grande Competião de Izzator", 11, 4, 6500, 25, 5));
+        mOcorrencias.add(new Ocorrencia("Grande Competição de Izzator", 11, 4, 6500, 25, 5));
 
         mOcorrencias.add(new Ocorrencia("Fuga do Labirinto", 1, 5, 5227, 20, 100));
         mOcorrencias.add(new Ocorrencia("Cruzada dos Águas", 41, 7, 6501, 5, 3));

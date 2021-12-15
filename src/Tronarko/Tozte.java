@@ -1,10 +1,11 @@
 package Tronarko;
 
 import java.util.ArrayList;
+
 import Tronarko.Hizarkos;
 import Tronarko.Intervalos.Tozte_Intervalo;
 
-public  class Tozte {
+public class Tozte {
 
     private int mSuperarkos;
     private int mHiperarkos;
@@ -33,7 +34,7 @@ public  class Tozte {
     }
 
     public Tozte getCopia() {
-        return new Tozte(mSuperarkos,mHiperarkos,mTronarkos);
+        return new Tozte(mSuperarkos, mHiperarkos, mTronarkos);
     }
 
     public Tozte(int _superarko, int _hiperarko, int _tronarko) {
@@ -194,7 +195,7 @@ public  class Tozte {
     }
 
     public Hizarkos getHizarko() {
-       Hizarkos ret = null;
+        Hizarkos ret = null;
 
         switch (getHizarko_Valor()) {
             case 1:
@@ -273,7 +274,7 @@ public  class Tozte {
                 ret = Signos.CARPA;
                 break;
             case 9:
-                ret =Signos.GAVIAO;
+                ret = Signos.GAVIAO;
                 break;
             case 10:
                 ret = Signos.SERPENTE;
@@ -293,34 +294,34 @@ public  class Tozte {
 
         switch (getHiperarko()) {
             case 1:
-                ret = Hiperarkos.ATLAS;
+                ret = Hiperarkos.DAZTO;
                 break;
             case 2:
-                ret = Hiperarkos.TERRON;
+                ret = Hiperarkos.HERTO;
                 break;
             case 3:
-                ret = Hiperarkos.IGGROX;
+                ret = Hiperarkos.PURGO;
                 break;
             case 4:
-                ret = Hiperarkos.OMPLO;
+                ret = Hiperarkos.NOPTO;
                 break;
             case 5:
-                ret = Hiperarkos.UXMO;
+                ret = Hiperarkos.FENCO;
                 break;
             case 6:
-                ret = Hiperarkos.SALLU;
+                ret = Hiperarkos.MOZTO;
                 break;
             case 7:
-                ret =Hiperarkos.ITHUR;
+                ret = Hiperarkos.CARGO;
                 break;
             case 8:
-                ret = Hiperarkos.GRAM;
+                ret = Hiperarkos.RIZNO;
                 break;
             case 9:
-                ret = Hiperarkos.HETTIZ;
+                ret = Hiperarkos.SACNO;
                 break;
             case 10:
-                ret = Hiperarkos.ELLUN;
+                ret = Hiperarkos.TORNO;
                 break;
         }
 
@@ -409,13 +410,13 @@ public  class Tozte {
                 ret = Superarkos.EPSILON;
                 break;
             case 6:
-                ret =Superarkos.IOTA;
+                ret = Superarkos.IOTA;
                 break;
             case 7:
                 ret = Superarkos.KAPA;
                 break;
             case 8:
-                ret =Superarkos.ZETA;
+                ret = Superarkos.ZETA;
                 break;
             case 9:
                 ret = Superarkos.SIGMA;
@@ -680,7 +681,7 @@ public  class Tozte {
         int resposta = 0;
 
         if (this.getSuperarkosTotal() == Outro.getSuperarkosTotal()) {
-            resposta=0;
+            resposta = 0;
         }
         if (this.getSuperarkosTotal() < Outro.getSuperarkosTotal()) {
             resposta = -1;
@@ -750,7 +751,7 @@ public  class Tozte {
     public ArrayList<Tozte_Intervalo> getEpocas() {
         ArrayList<Tozte_Intervalo> Epocas = new ArrayList<Tozte_Intervalo>();
 
-        Epocas.add((new Tozte_Intervalo("CRICAO", new Tozte(1, 1, 1), new Tozte(50, 10, 325))));
+        Epocas.add((new Tozte_Intervalo("CRIACAO", new Tozte(1, 1, 1), new Tozte(50, 10, 325))));
         Epocas.add((new Tozte_Intervalo("DEUSES", new Tozte(1, 1, 326), new Tozte(50, 10, 5299))));
         Epocas.add((new Tozte_Intervalo("REINOS", new Tozte(1, 1, 5300), new Tozte(50, 10, 6199))));
         Epocas.add((new Tozte_Intervalo("IMPERIOS", new Tozte(1, 1, 6200), new Tozte(50, 10, 10000))));
@@ -801,6 +802,7 @@ public  class Tozte {
 
         return ret;
     }
+
 
 }
 

@@ -29,11 +29,8 @@ public class Hazde {
     }
 
     public int getTotalEttons() {
-        int ret = 0;
 
-        ret += (this.getArco()) * 100 * 100;
-        ret += this.getItta() * 100;
-        ret += this.getUzzon();
+        int ret = (getArco() * 100 * 100) + (getItta() * 100) + getUzzon();
 
         return ret;
     }
@@ -45,6 +42,61 @@ public class Hazde {
 
         return texto;
     }
+
+    public String getTextoZerado() {
+        String texto = "";
+
+        String p1 = String.valueOf(this.getArco());
+        String p2 = String.valueOf(this.getItta());
+        String p3 = String.valueOf(this.getUzzon());
+
+        if (p1.length() == 1) {
+            p1 = "0" + p1;
+        }
+
+        if (p2.length() == 1) {
+            p2 = "0" + p2;
+        }
+
+        if (p3.length() == 1) {
+            p3 = "0" + p3;
+        }
+
+        texto = p1 + ":" + p2 + ":" + p3;
+
+        return texto;
+    }
+
+    public String getTextoSemUzzonZerado() {
+        String texto = "";
+
+        String p1 = String.valueOf(this.getArco());
+        String p2 = String.valueOf(this.getItta());
+
+        if (p1.length() == 1) {
+            p1 = "0" + p1;
+        }
+
+        if (p2.length() == 1) {
+            p2 = "0" + p2;
+        }
+
+
+
+        texto = p1 + ":" + p2 ;
+
+        return texto;
+    }
+
+
+    public String getTextoSemUzzons() {
+        String texto = "";
+
+        texto = this.getArco() + ":" + this.getItta();
+
+        return texto;
+    }
+
 
     public String getTextoSemEttos() {
         String texto = "";
@@ -60,10 +112,7 @@ public class Hazde {
 
     public long getTotalEttonsParaAcabar() {
 
-        int eValor = getTotalEttons();
-
-        int eTudo = 10 * 100 * 100;
-        int eFalta = eTudo - eValor;
+        int eFalta = (10 * 100 * 100) - getTotalEttons();
 
         return eFalta;
     }
@@ -72,7 +121,7 @@ public class Hazde {
 
         int eValor = getTotalEttons();
 
-        int eTudo = 10 * 100 * 100;
+        int eTudo = (10 * 100 * 100) + (100 * 100) + 100;
         int eFalta = eTudo - eValor;
 
         int eEttons = eFalta;

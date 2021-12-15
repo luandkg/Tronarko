@@ -18,6 +18,7 @@ import Tronarko.Hiperarkos;
 
 import Tronarko.Eventos.Eventum;
 import Tronarko.Satelites.MapaCelestial;
+import Tronarko.Utils.DispensadorDeAlarme;
 import Tronarko.Utils.Organizador;
 import Tronarko.Utils.Lembrete;
 import Tronarko.Utils.Cronometro;
@@ -57,8 +58,8 @@ public class Alarme extends Cena {
     private boolean mLigarCron;
     private Hazde mCronLigar;
 
-    boolean mDispensar;
-    Hazde mDispensadoCom;
+    private DispensadorDeAlarme mDispensador;
+
 
     public Alarme() {
 
@@ -83,8 +84,7 @@ public class Alarme extends Cena {
         mQuantos = 0;
 
         mOrganizador = new Organizador();
-
-        int a = 49;
+        mDispensador = new DispensadorDeAlarme();
 
         mOrganizador.marcarSimples(TronarkoC.getTozte(), TronarkoC.getHazde().adicionar_Itta(-2).getComEttonZerado());
         mOrganizador.marcarSimples(TronarkoC.getTozte(), TronarkoC.getHazde().getComEttonZerado());
@@ -92,7 +92,6 @@ public class Alarme extends Cena {
         mOrganizador.marcarSimples(TronarkoC.getTozte(), TronarkoC.getHazde().adicionar_Itta(+2).getComEttonZerado());
         mOrganizador.marcarSimples(TronarkoC.getTozte(), TronarkoC.getHazde().adicionar_Itta(+3).getComEttonZerado());
         mOrganizador.marcarSimples(TronarkoC.getTozte(), TronarkoC.getHazde().adicionar_Itta(+4).getComEttonZerado());
-
 
         mOrganizador.marcarSuperarko(Superarkos.ALFA, new Hazde(2, 0, 0));
         mOrganizador.marcarSuperarko(Superarkos.ALFA, new Hazde(6, 30, 0));
@@ -107,9 +106,6 @@ public class Alarme extends Cena {
 
         mLigarCron = false;
         mCronLigar = new Hazde(6, 61, 0);
-
-        mDispensar = false;
-        mDispensadoCom = null;
 
     }
 
@@ -137,12 +133,10 @@ public class Alarme extends Cena {
             int py = (int) mWindows.getMouse().y;
 
             if (BTN_DISPENSADOR.getClicado(px, py)) {
-                mDispensar = true;
-                mDispensadoCom = mAgora;
-                System.out.println("Dispensar : " + mDispensadoCom.getTexto());
+                mDispensador.dispensar(mAgora);
+                System.out.println("Dispensar : " + mDispensador.getDispensado().getTexto());
 
             }
-
 
         }
 
@@ -176,12 +170,9 @@ public class Alarme extends Cena {
         mWindows.Limpar(g);
         BTN_DISPENSADOR.draw(g);
 
-
         //Hoje = Hoje.adicionar_Tronarko(5);
 
-
         ArrayList<TozteCor> mInfos = EventumC.getToztesComCorHiperarko(mHoje.getHiperarko(), mHoje.getTronarko());
-
 
         int CAIXA_ALTURA = 190;
 
@@ -195,50 +186,30 @@ public class Alarme extends Cena {
             TextoPequeno.EscreveNegrito(g, " -->> Cron : " + mCron.getEsperado(), LX, LY);
         }
 
+        int LS = 150;
 
         MapaCelestial.Allux AlluxC = new MapaCelestial.Allux();
         MapaCelestial.Ettos EttosC = new MapaCelestial.Ettos();
         MapaCelestial.Unnos UnnosC = new MapaCelestial.Unnos();
 
-        TextoPequeno.EscreveNegrito(g, " -->> Allux : " + AlluxC.getFase(mHoje).toString(), LX + 300, LY - 100);
-        TextoPequeno.EscreveNegrito(g, " -->> Ettos : " + EttosC.getFase(mHoje).toString(), LX + 300, LY - 50);
-        TextoPequeno.EscreveNegrito(g, " -->> Unnos : " + UnnosC.getFase(mHoje).toString(), LX + 300, LY);
+        TextoPequeno.EscreveNegrito(g, " -->> Allux : " + AlluxC.getFase(mHoje).toString(), LX + 300, LS - 60);
+        TextoPequeno.EscreveNegrito(g, " -->> Ettos : " + EttosC.getFase(mHoje).toString(), LX + 300, LS - 30);
+        TextoPequeno.EscreveNegrito(g, " -->> Unnos : " + UnnosC.getFase(mHoje).toString(), LX + 300, LS);
 
 
         TextoPequeno.EscreveNegrito(g, " AGENDA : " + mHoje.getSuperarko_Status().toString(), 650, 100);
 
         int eLY = 150;
 
-
         for (Lembrete eLembrete : mOrganizador.getLembretes(mHoje)) {
 
-            Hazde mIniciar = eLembrete.getHazde();
-            Hazde mFinalizar = eLembrete.getHazde().adicionar_Itta(mTocar);
+            boolean estaTocando = mDispensador.estaTocando(eLembrete, mTocar, mAgora);
 
-            if (mDispensar) {
-
-                TextoPequeno.EscreveNegrito(g, " -> " + eLembrete.getTozte().getTexto() + " " + eLembrete.getHazde().getTextoSemEttos(), 650, eLY);
-
-                if (mIniciar.MaiorIgualQue(mDispensadoCom)) {
-
-                    if (mAgora.MaiorIgualQue(mIniciar) && mAgora.MenorIgualQue(mFinalizar)) {
-                        mDispensar = false;
-                    }
-
-                }
-
-
+            if (estaTocando) {
+                TextoPequeno_Sel.EscreveNegrito(g, " -> " + eLembrete.getTozte().getTexto() + " " + eLembrete.getHazde().getTextoSemEttos(), 650, eLY);
             } else {
-
-                if (mAgora.MaiorIgualQue(mIniciar) && mAgora.MenorIgualQue(mFinalizar)) {
-                    TextoPequeno_Sel.EscreveNegrito(g, " -> " + eLembrete.getTozte().getTexto() + " " + eLembrete.getHazde().getTextoSemEttos(), 650, eLY);
-                } else {
-                    TextoPequeno.EscreveNegrito(g, " -> " + eLembrete.getTozte().getTexto() + " " + eLembrete.getHazde().getTextoSemEttos(), 650, eLY);
-                }
-
-
+                TextoPequeno.EscreveNegrito(g, " -> " + eLembrete.getTozte().getTexto() + " " + eLembrete.getHazde().getTextoSemEttos(), 650, eLY);
             }
-
 
             eLY += 50;
 
@@ -277,13 +248,9 @@ public class Alarme extends Cena {
         String eTitulo = String.valueOf(i + 1) + " - " + Hiperarkos.get(i + 1).toString();
 
         if (Hoje.getHiperarko() == (i + 1)) {
-
             TextoGrande_Hoje.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
-
         } else {
-
             TextoGrande.EscreveNegrito(g, eTitulo, CAIXA_X - 10, (CAIXA_ALTURA * Faixador) + CAIXA_Y);
-
         }
 
         for (int s = 0; s < 10; s++) {
