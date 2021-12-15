@@ -5,22 +5,22 @@
 
  O ano é chamado de <b> TRONARKO </b> e possui <b> 500 Superarkos</b> que representam os dias, dividos em 10 faixas de 50 Superarkos entitulados de <b> Hiperarkos </b>
  
-![Tronarko](https://github.com/luandkg/tronarko/blob/master/images/tronarko7001.png)
+![Tronarko](https://github.com/luandkg/tronarko/blob/master/images/tronarko.png)
 
 ### HIPERARKO
 
  o ano é dividido em <b> 10 Hiperarkos </b> contendo <b>50 Superarkos </b> cada.
 
-	- ATLAS
-	- TERRON
-	- IGGROX
-	- OMPLO
-	- UXMO
-	- SALLU
-	- ITHUR
-	- GRAM
-	- HETTIZ
-	- ELLUN
+	- DAZTO
+	- HERTO
+	- PURGO
+	- NOPTO
+	- FENCO
+	- MOZTO
+	- CARGO
+	- RIZNO
+	- SACNO
+	- TORNO
 
 
 #### MEGARKO

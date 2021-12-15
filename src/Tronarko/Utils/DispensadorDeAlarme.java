@@ -8,10 +8,8 @@ public class DispensadorDeAlarme {
     private Hazde mDispensadoCom;
 
     public DispensadorDeAlarme() {
-
         mDispensar = false;
         mDispensadoCom = null;
-
     }
 
     public void dispensar(Hazde eAgora) {
@@ -47,13 +45,13 @@ public class DispensadorDeAlarme {
         Hazde mIniciar = eLembrete.getHazde();
         Hazde mFinalizar = eLembrete.getHazde().adicionar_Itta(mTocar);
 
-        boolean tocando = false;
+        boolean alterar = false;
 
         if (mAgora.MaiorIgualQue(mIniciar) && mAgora.MenorIgualQue(mFinalizar)) {
-            tocando = true;
+            alterar = true;
         }
 
-        return tocando;
+        return alterar;
     }
 
     public boolean estaTocando(Lembrete eLembrete, int mTocar, Hazde mAgora) {
