@@ -1,4 +1,4 @@
-package tronarko.Harrempluz;
+package tronarko.harrempluz;
 
 public enum Item{
 

@@ -1,4 +1,4 @@
-package tronarko.Harrempluz;
+package tronarko.harrempluz;
 
 import java.util.ArrayList;
 import java.util.Random;
