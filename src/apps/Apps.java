@@ -1,4 +1,4 @@
-package app;
+package apps;
 
 import oe.Inicializador;
 
@@ -11,11 +11,11 @@ public class Apps {
     public static void INICIAR(int app){
 
         if (app == APP_TRONARKO) {
-            Inicializador.criar("tronarko", 1500, 1020, "editor.png", new TronarkoCena());
+            Inicializador.criar("tronarko", 1500, 1020, "editor.png", new AplicacaoTronarko());
         } else if (app == APP_HARREMPLUZ) {
-            Inicializador.criar("Harrempluz", 1500, 1020, "editor.png", new HarrempluzCena());
+            Inicializador.criar("Harrempluz", 1500, 1020, "editor.png", new AplicacaoHarrempluz());
         } else if (app == APP_ALARME) {
-            Inicializador.criar("Alarme", 900, 600, "res/editor.png", new Alarme());
+            Inicializador.criar("Alarme", 900, 600, "res/editor.png", new AplicacaoAlarme());
         }
 
     }

@@ -1,4 +1,4 @@
-package app;
+package apps;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -17,7 +17,7 @@ import tronarko.Tronarko;
 import tronarko.Tozte;
 import tronarko.Signos;
 
-public class HarrempluzCena extends Cena {
+public class AplicacaoHarrempluz extends Cena {
 
     private Windows mWindows;
 
@@ -39,7 +39,7 @@ public class HarrempluzCena extends Cena {
     private IteracaoUI mIteracaoUI;
     private int mQuantos;
 
-    public HarrempluzCena( ) {
+    public AplicacaoHarrempluz( ) {
 
         TextoGrande = new Escritor(30, Color.BLACK);
         TextoPequeno = new Escritor(15, Color.BLACK);

@@ -1,4 +1,4 @@
-package app;
+package apps;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -23,7 +23,7 @@ import tronarko.utils.Organizador;
 import tronarko.utils.Lembrete;
 import tronarko.utils.Cronometro;
 
-public class Alarme extends Cena {
+public class AplicacaoAlarme extends Cena {
 
 
     private Windows mWindows;
@@ -61,7 +61,7 @@ public class Alarme extends Cena {
     private DispensadorDeAlarme mDispensador;
 
 
-    public Alarme() {
+    public AplicacaoAlarme() {
 
         TextoGrande = new Escritor(30, Color.BLACK);
         TextoGrande_Hoje = new Escritor(30, Color.RED);

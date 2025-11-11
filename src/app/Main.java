@@ -1,11 +1,10 @@
 package app;
 
+import apps.Apps;
 import khronum.MinhaAgenda;
 import tronarko.Tronarko;
 
-import java.awt.*;
-
-public class TronarkoMain {
+public class Main {
 
     public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package app;
+package apps;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -20,7 +20,7 @@ import tronarko.Hiperarkos;
 import tronarko.eventos.Eventum;
 import tronarko.satelites.MapaCelestial;
 
-public class TronarkoCena extends Cena {
+public class AplicacaoTronarko extends Cena {
 
 
     private Windows mWindows;
