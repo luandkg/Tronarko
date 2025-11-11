@@ -4,10 +4,7 @@ import khronum.MinhaAgenda;
 import oe.Inicializador;
 import tronarko.Tronarko;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 
 public class TronarkoMain {
 
@@ -33,30 +30,7 @@ public class TronarkoMain {
 
         }
 
-        BufferedImage imagem = new BufferedImage(500, 500, BufferedImage.TYPE_4BYTE_ABGR);
 
-        Graphics2D g = (Graphics2D) imagem.getGraphics();
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, 500, 500);
-
-        RenderingHints rh = new RenderingHints(
-                RenderingHints.KEY_TEXT_ANTIALIASING,
-                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        g.setRenderingHints(rh);
-
-        int comecar = 0;
-        int tamanho = 45;
-
-
-        g.setColor(Color.BLACK);
-        g.setStroke(new BasicStroke(5f));
-        g.drawArc(50, 50, 300, 300, comecar + 90, tamanho);
-
-        try {
-            ImageIO.write(imagem, "PNG", new File("res/tron.png"));
-        } catch (Exception e) {
-
-        }
 
         Tronarko a = new Tronarko();
         System.out.println("\nMEU ANIVERSARIO");
