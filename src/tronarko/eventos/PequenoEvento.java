@@ -1,4 +1,4 @@
-package tronarko.Eventos;
+package tronarko.eventos;
 
 import tronarko.Intervalos.Tron_Intervalo;
 import tronarko.Tozte;

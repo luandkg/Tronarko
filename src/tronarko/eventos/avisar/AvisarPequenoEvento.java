@@ -1,4 +1,4 @@
-package tronarko.Eventos.Avisar;
+package tronarko.eventos.avisar;
 
 public class AvisarPequenoEvento {
 

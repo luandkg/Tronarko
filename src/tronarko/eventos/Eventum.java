@@ -1,14 +1,14 @@
-package tronarko.Eventos;
+package tronarko.eventos;
 
 import java.awt.Color;
 import java.util.ArrayList;
 
 import tronarko.Hizarkos;
 import tronarko.TozteCor;
-import tronarko.Eventos.Ocorrencia.Modos;
-import tronarko.Eventos.Avisar.Avisar;
-import tronarko.Eventos.Avisar.AvisarGrandeEvento;
-import tronarko.Eventos.Avisar.AvisarPequenoEvento;
+import tronarko.eventos.Ocorrencia.Modos;
+import tronarko.eventos.avisar.Avisar;
+import tronarko.eventos.avisar.AvisarGrandeEvento;
+import tronarko.eventos.avisar.AvisarPequenoEvento;
 import tronarko.Tozte;
 
 public class Eventum {

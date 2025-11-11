@@ -1,4 +1,4 @@
-package tronarko.Eventos;
+package tronarko.eventos;
 
 public class Ocorrencia {
 
