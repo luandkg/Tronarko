@@ -5,8 +5,8 @@ import java.util.Calendar;
 
 import empacotador.Empacotador;
 import empacotador.Pacote;
-import tronarko.Harrempluz.Harrem;
-import tronarko.Harrempluz.Harrempluz;
+import tronarko.harrempluz.Harrem;
+import tronarko.harrempluz.Harrempluz;
 
 public class Astral {
 

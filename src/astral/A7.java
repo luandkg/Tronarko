@@ -1,7 +1,7 @@
 package astral;
 
-import tronarko.Harrempluz.Harrem;
-import tronarko.Harrempluz.Harrempluz;
+import tronarko.harrempluz.Harrem;
+import tronarko.harrempluz.Harrempluz;
 
 import java.util.Calendar;
 

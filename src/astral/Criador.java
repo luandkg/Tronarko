@@ -1,6 +1,6 @@
 package astral;
 
-import tronarko.Harrempluz.Colecao;
+import tronarko.harrempluz.Colecao;
 import tronarko.Signos;
 
 import java.util.ArrayList;
@@ -51,25 +51,25 @@ public class Criador {
 
     }
 
- //   public Harrem Criar_Harrempluz(int eTronarko) {
+    //public Harrem Criar_Harrempluz(int eTronarko) {
 
       //  Harrem HarremC = new Harrem(eTronarko);
 
-     //   for (int eMega = 1; eMega <= 50; eMega++) {
+     //  for (int eMega = 1; eMega <= 50; eMega++) {
 
          //   for (String SignoC : mSignos) {
 
               //  for (Colecao ColecaoC : mColecoes) {
 
-                    //HarremItem(ColecaoC.getNome(), ColecaoC.SorteieQualquer());
+                 //   HarremItem(ColecaoC.getNome(), ColecaoC.SorteieQualquer());
 
-             //   }
+              //  }
 
-          //  }
+           // }
 
-      //  }
+       // }
 
-        //return HarremC;
+       // return HarremC;
    // }
 
 
