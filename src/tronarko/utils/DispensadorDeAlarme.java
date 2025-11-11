@@ -1,4 +1,4 @@
-package tronarko.Utils;
+package tronarko.utils;
 
 import tronarko.Hazde;
 

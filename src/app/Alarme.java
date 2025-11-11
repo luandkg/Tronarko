@@ -18,10 +18,10 @@ import tronarko.Hiperarkos;
 
 import tronarko.eventos.Eventum;
 import tronarko.satelites.MapaCelestial;
-import tronarko.Utils.DispensadorDeAlarme;
-import tronarko.Utils.Organizador;
-import tronarko.Utils.Lembrete;
-import tronarko.Utils.Cronometro;
+import tronarko.utils.DispensadorDeAlarme;
+import tronarko.utils.Organizador;
+import tronarko.utils.Lembrete;
+import tronarko.utils.Cronometro;
 
 public class Alarme extends Cena {
 
