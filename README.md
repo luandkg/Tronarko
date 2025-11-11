@@ -1,11 +1,11 @@
 #### TRONARKO
 
 
- Sistema de Data e Hora - Calendário Tronarko
+ Sistema de Data e Hora - Calendário tronarko
 
  O ano é chamado de <b> TRONARKO </b> e possui <b> 500 Superarkos</b> que representam os dias, dividos em 10 faixas de 50 Superarkos entitulados de <b> Hiperarkos </b>
  
-![Tronarko](https://github.com/luandkg/tronarko/blob/master/images/tronarko.png)
+![tronarko](https://github.com/luandkg/tronarko/blob/master/images/tronarko.png)
 
 ### HIPERARKO
 
@@ -60,16 +60,16 @@
 
 	- HAZDE : Arko : Itta : Uzzon
 	
-	- TOZTE : Superarko / Hiperarko / Tronarko
+	- TOZTE : Superarko / Hiperarko / tronarko
 	
-	- TRON : Arko : Itta : Uzzon - Superarko / Hiperarko / Tronarko
+	- TRON : Arko : Itta : Uzzon - Superarko / Hiperarko / tronarko
 	
 ![Hazde](https://github.com/luandkg/tronarko/blob/master/images/hazde.png)
 
 
 ### SATÉLITES
 
-O Tronarko é organizado por 3 Luas 
+O tronarko é organizado por 3 Luas 
 	
 	- ALLUX : Lua Amarela com ciclo de 40 Superarkos
 	
@@ -81,13 +81,13 @@ O Tronarko é organizado por 3 Luas
 
  Pequenos Eventos 
 
-	 - Festival Reciclum Tron  ->  [ 1/1 ] a cada 1 Tronarko desde 1
-	 - Festival do Vento  ->  [ 26/1 ] a cada 1 Tronarko desde 6500
-	 - Aposta do Trovão  ->  [ 45/2 ] a cada 3 Tronarko desde 6507
-	 - Festival do Fogo  ->  [ 15/6 ] a cada 1 Tronarko desde 6502
-	 - Festival da Água  ->  [ 41/7 ] a cada 1 Tronarko desde 6501
-	 - Festival da Terra  ->  [ 5/8 ] a cada 1 Tronarko desde 6503
-	 - Festival Reciclum Tron  ->  [ 50/10 ] a cada 1 Tronarko desde 1
+	 - Festival Reciclum Tron  ->  [ 1/1 ] a cada 1 tronarko desde 1
+	 - Festival do Vento  ->  [ 26/1 ] a cada 1 tronarko desde 6500
+	 - Aposta do Trovão  ->  [ 45/2 ] a cada 3 tronarko desde 6507
+	 - Festival do Fogo  ->  [ 15/6 ] a cada 1 tronarko desde 6502
+	 - Festival da Água  ->  [ 41/7 ] a cada 1 tronarko desde 6501
+	 - Festival da Terra  ->  [ 5/8 ] a cada 1 tronarko desde 6503
+	 - Festival Reciclum Tron  ->  [ 50/10 ] a cada 1 tronarko desde 1
 
  Grandes Eventos 
 
@@ -100,7 +100,7 @@ O Tronarko é organizado por 3 Luas
 	 - Cruzada dos Águas  ->  [ 41/7 a 45/7 ] a cada 3 Tronarkos desde 6501
 	 - Emboscada da Terra  ->  [ 5/8 a 14/8 ] a cada 3 Tronarkos desde 6503
 	 - Torneio de Hazzo  ->  [ 11/9 a 20/9 ] a cada 2 Tronarkos desde 5431
-	 - Festival da Colheita  ->  [ 26/10 a 30/10 ] a cada 1 Tronarko desde 6200
+	 - Festival da Colheita  ->  [ 26/10 a 30/10 ] a cada 1 tronarko desde 6200
 
 
 	
