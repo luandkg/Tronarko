@@ -18,7 +18,7 @@ import tronarko.Superarkos;
 import tronarko.Hiperarkos;
 
 import tronarko.eventos.Eventum;
-import tronarko.Satelites.MapaCelestial;
+import tronarko.satelites.MapaCelestial;
 
 public class TronarkoCena extends Cena {
 

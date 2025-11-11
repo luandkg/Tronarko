@@ -17,7 +17,7 @@ import tronarko.Superarkos;
 import tronarko.Hiperarkos;
 
 import tronarko.eventos.Eventum;
-import tronarko.Satelites.MapaCelestial;
+import tronarko.satelites.MapaCelestial;
 import tronarko.Utils.DispensadorDeAlarme;
 import tronarko.Utils.Organizador;
 import tronarko.Utils.Lembrete;

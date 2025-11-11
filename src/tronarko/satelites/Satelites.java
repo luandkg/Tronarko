@@ -1,12 +1,12 @@
-package tronarko.Satelites;
+package tronarko.satelites;
 
 import java.util.ArrayList;
 
 import tronarko.Tronarko;
 import tronarko.Tozte;
-import tronarko.Satelites.MapaCelestial.Allux;
-import tronarko.Satelites.MapaCelestial.Ettos;
-import tronarko.Satelites.MapaCelestial.Unnos;
+import tronarko.satelites.MapaCelestial.Allux;
+import tronarko.satelites.MapaCelestial.Ettos;
+import tronarko.satelites.MapaCelestial.Unnos;
 import tronarko.intervalos.Tozte_Intervalo;
 
 public class Satelites {

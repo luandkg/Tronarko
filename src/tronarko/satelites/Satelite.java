@@ -1,4 +1,4 @@
-package tronarko.Satelites;
+package tronarko.satelites;
 
 import tronarko.Tozte;
 
