@@ -2,7 +2,7 @@ package tronarko;
 
 import java.util.ArrayList;
 
-import tronarko.Intervalos.Tozte_Intervalo;
+import tronarko.intervalos.Tozte_Intervalo;
 
 public class Tozte {
 

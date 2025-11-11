@@ -1,4 +1,4 @@
-package tronarko.Intervalos;
+package tronarko.intervalos;
 
 import tronarko.Tozte;
 

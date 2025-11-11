@@ -7,7 +7,7 @@ import tronarko.Tozte;
 import tronarko.Satelites.MapaCelestial.Allux;
 import tronarko.Satelites.MapaCelestial.Ettos;
 import tronarko.Satelites.MapaCelestial.Unnos;
-import tronarko.Intervalos.Tozte_Intervalo;
+import tronarko.intervalos.Tozte_Intervalo;
 
 public class Satelites {
 

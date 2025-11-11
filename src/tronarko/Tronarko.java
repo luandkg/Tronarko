@@ -1,6 +1,6 @@
 package tronarko;
 
-import tronarko.Intervalos.Tozte_Intervalo;
+import tronarko.intervalos.Tozte_Intervalo;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

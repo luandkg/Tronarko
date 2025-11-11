@@ -1,4 +1,4 @@
-package tronarko.Intervalos;
+package tronarko.intervalos;
 
 import tronarko.Hazde;
 import tronarko.Tron;

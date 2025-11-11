@@ -1,6 +1,6 @@
 package tronarko.eventos;
 
-import tronarko.Intervalos.Tron_Intervalo;
+import tronarko.intervalos.Tron_Intervalo;
 import tronarko.Tozte;
 import tronarko.Tron;
 
