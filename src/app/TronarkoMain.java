@@ -1,7 +1,7 @@
 package app;
 
 import khronum.MinhaAgenda;
-import omega_engine.Inicializador;
+import oe.Inicializador;
 import tronarko.Tronarko;
 
 import javax.imageio.ImageIO;
@@ -17,7 +17,7 @@ public class TronarkoMain {
         eMinhaAgenda.init_2021();
 
 
-        int App = 2;
+        int App = 0;
 
         if (App == 0) {
 
@@ -29,7 +29,7 @@ public class TronarkoMain {
 
         } else if (App == 2) {
 
-            Inicializador.criar("Alarme", 900, 600, "editor.png", new Alarme());
+            Inicializador.criar("Alarme", 900, 600, "res/editor.png", new Alarme());
 
         }
 

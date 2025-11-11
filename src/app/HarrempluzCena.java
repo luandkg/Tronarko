@@ -5,11 +5,11 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import astral.A7;
-import omega_engine.UI.BotaoCor;
-import omega_engine.UI.IteracaoUI;
-import omega_engine.Windows;
-import omega_engine.Cenarios.Cena;
-import omega_engine.Utils.Escritor;
+import oe.ui.BotaoCor;
+import oe.ui.IteracaoUI;
+import oe.Windows;
+import oe.cenarios.Cena;
+import oe.utils.Escritor;
 import tronarko.Harrempluz.Harrem;
 import tronarko.Harrempluz.HarremItem;
 import tronarko.Harrempluz.Harrempluz;

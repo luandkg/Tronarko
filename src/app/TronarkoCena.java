@@ -4,11 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import omega_engine.Windows;
-import omega_engine.Cenarios.Cena;
-import omega_engine.UI.BotaoCor;
-import omega_engine.UI.IteracaoUI;
-import omega_engine.Utils.Escritor;
+
+import oe.Windows;
+import oe.cenarios.Cena;
+import oe.ui.BotaoCor;
+import oe.ui.IteracaoUI;
+import oe.utils.Escritor;
 import tronarko.TozteCor;
 import tronarko.Tronarko;
 import tronarko.Tozte;
